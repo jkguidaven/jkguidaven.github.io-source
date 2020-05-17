@@ -1,0 +1,52 @@
+{
+  "roles": [
+    {
+      "name": "Front-end Developer",
+      "description": "I mostly build Front-end applications using modern UI frameworks which help speed up development while maintaining high quality codes.",
+      "languages": ["Javascript", "HTML/CSS", "Typscript"],
+      "tools": [
+        "Angular",
+        "Vue",
+        "React",
+        "Ionic",
+        "Vuetify",
+        "Bulma",
+        "Bootstrap",
+        "Firebase",
+        "npm",
+        "yarn",
+        "indexDB",
+        "gulp",
+        "webpack"
+      ]
+    },
+    {
+      "name": "Back-end Developer",
+      "description": "I mainly use Java-based framework when building web services however I also use PHP frameworks when building prototypes or POC.",
+      "languages": ["Java", "C#", "PHP & Go"],
+      "tools": [
+        "Laravel/lumen",
+        "Springboot",
+        "Grails",
+        ".NET Core",
+        "Krakend",
+        "Consul",
+        "RabbitMQ",
+        "Docker",
+        "MySQL"
+      ]
+    },
+    {
+      "name": "Software Engineer",
+      "description": "It is important for me to understand software engineering fundamentals when building fast and high quality applications.",
+      "knowledge": [
+        "Algorithm & Datastructure",
+        "Design Patterns",
+        "REST API",
+        "Microservice Architecture",
+        "Web security",
+        "oAuth/openID"
+      ]
+    }
+  ]
+}

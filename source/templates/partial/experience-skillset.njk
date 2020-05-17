@@ -1,0 +1,155 @@
+<div class="container skillset-content">
+  <div class="columns is-centered">
+    <div class="column has-text-centered">
+      <div class="box columns">
+        {% for role in roles -%}
+          <div class="column">
+            <strong class="title is-5 has-text-weight-bold">  
+              {{ role.name }}
+            </strong>
+
+            <p>
+              {{ role.description }}
+            </p>
+
+            {% if role.languages %}
+              <strong class="has-text-weight-semibold has-text-primary margin-10">
+                Languages I speak:
+              </strong>
+
+              <p>
+                {{ role.languages | join(", ") }}
+              </p>
+            {% endif %}
+
+            {% if role.tools %}
+              <strong class="has-text-weight-semibold has-text-primary margin-10">
+                Tools I use:
+              </strong>
+              
+              <ul>
+                {% for tool in role.tools -%}
+                  <li>{{ tool }}</li>
+                {%- endfor %}
+              </ul>
+            {% endif %}
+
+            {% if role.knowledge %}
+              <strong class="has-text-weight-semibold has-text-primary margin-10">
+                Knowledges and Principles I follow:
+              </strong>
+
+              <ul>
+                {% for knowledge in role.knowledge -%}
+                <li>{{ knowledge }}</li>
+                {%- endfor %}
+              </ul>
+            {% endif %}
+
+          </div>
+        {%- endfor %}
+        {# <div class="column">
+            <strong class="title is-5 has-text-weight-bold">  
+              Front-end Developer
+            </strong>
+
+            <p>
+              I mostly build Front-end applications using
+              modern UI frameworks which help speed up development
+              while maintaining high quality codes.
+            </p>
+
+            <strong class="has-text-weight-semibold has-text-primary margin-10">
+              Languages I speak:
+            </strong>
+
+            <p>
+              HTML, CSS, Typescript, Javascript Sass, Less
+            </p>
+
+            <strong class="has-text-weight-semibold has-text-primary margin-10">
+              Tools I use:
+            </strong>
+
+            <ul>
+              <li>Angular</li>
+              <li>Vue</li>
+              <li>React</li>
+              <li>Ionic</li>
+              <li>Vuetify</li>
+              <li>Bulma</li>
+              <li>Bootstrap</li>
+              <li>Firebase</li>
+              <li>webpack</li>
+              <li>npm</li>
+              <li>IndexDB</li>
+            </ul>
+        </div>
+
+        <div class="column with-border">
+          <strong class="title is-5 has-text-weight-bold">  
+            Back-end Developer
+          </strong>
+
+            <p>
+              I mainly use Java-based framework when building
+              web services however I also use PHP frameworks
+              when building prototypes or POC.
+            </p>
+
+            <strong class="has-text-weight-semibold has-text-primary margin-10">
+              Languages I speak:
+            </strong>
+
+            <p>
+              Java, C#, PHP & Go
+            </p>
+
+            <strong class="has-text-weight-semibold has-text-primary margin-10">
+              Tools I use:
+            </strong>
+
+            <ul>
+              <li>Laravel</li>
+              <li>Lumens</li>
+              <li>Springboot</li>
+              <li>Grails</li>
+              <li>.NET Core</li>
+              <li>Krakend</li>
+              <li>Consul</li>
+              <li>rabbitMQ</li>
+              <li>Docker</li>
+              <li>MySQL</li>
+            </ul>
+        </div>
+
+
+
+      <div class="column">
+          <strong class="title is-5 has-text-weight-bold">  
+            Software Engineering
+          </strong>
+
+            <p>
+              It is important for me to understand 
+              software engineering fundamentals when
+              building fast and high quality applications.
+            </p>
+
+            <strong class="has-text-weight-semibold has-text-primary margin-10">
+              Principle and Knowledges I follow:
+            </strong>
+
+            <ul>
+              <li>Algorithm and Datastructure</li>
+              <li>Design Patterns</li>
+              <li>REST API</li>
+              <li>Microservice Architecture</li>
+              <li>Web security</li>
+              <li>oAuth/openID</li>
+            </ul>
+          </div>
+      </div> #}
+    </div>
+  </div>
+</div>

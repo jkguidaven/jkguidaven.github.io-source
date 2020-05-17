@@ -3,12 +3,14 @@ const del = require("del");
 const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const postcss = require("gulp-postcss");
+const data = require("gulp-data");
 const sass = require("gulp-sass");
 sass.compiler = require("node-sass");
 const nunjucksRender = require("gulp-nunjucks-render");
 const cssnano = require("cssnano");
 const uncss = require("postcss-uncss");
 const autoprefixer = require("autoprefixer");
+var fs = require("fs");
 
 const sourceFolder = "source";
 const outputFolder = "dest";
@@ -20,6 +22,13 @@ gulp.task("clean", function () {
 gulp.task("build:html", function () {
   return gulp
     .src(`${sourceFolder}/pages/**/*.+(html|nunjucks|njk)`)
+    .pipe(
+      data(function () {
+        return JSON.parse(
+          fs.readFileSync(`${sourceFolder}/data/skillset.json`)
+        );
+      })
+    )
     .pipe(
       nunjucksRender({
         path: [`${sourceFolder}/templates`],
