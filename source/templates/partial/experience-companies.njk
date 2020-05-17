@@ -3,103 +3,35 @@
         Present & Past companies I work for
     </strong>
 
-    <div class="columns is-centered" style="margin-bottom: 25px">
-      <a class="box column is-one-third margin-10 company-box newlogic"
-        href="https://newlogic.io" rel="noreferrer" target="_blank"
-        role="link"
-      >
-        <div class="content">
-          <strong>Newlogic Pte Ltd</strong>
-          <br/>
-          <br/>
-          <p>
-            Offers technical guidance, product prototyping, code auditing,
-            as well as end-to-end implementation of software solutions.
-          </p>
 
-          Currently working as a full-time <strong>Javascript Developer</strong>
-        </div>
-      </a>
-      <a class="box column is-one-third margin-10 company-box zenventory"
-        href="https://www.zenventory.com" rel="noreferrer" target="_blank"
-        role="link"
-      >
-        <div class="content">
-          <strong>Zenventory</strong>
-          <br/>
-          <br/>
-          <p>
-            Inventory Management Software for eCommerce Retailers, 3PLs, and Small Businesses.
-          </p>
+    {% for group in range(0, companies.length / 3) -%}
+      <div class="columns is-centered" style="margin-bottom: 25px">
+        {% for company in companies.slice(group * 3,(group * 3) + 3) -%}
+          <a class="box column is-one-third margin-10 company-box"
+            href="{{ company.url }}" rel="noreferrer" target="_blank"
+            style="
+              background-image: url(/assets/images/companies/{{ company.brand.image }});
+              background-color: {{ company.brand.color }};
+              background-size: {{ company.brand.size }};
+            "
+            role="link"
+          >
+            <div class="content">
+              <b>{{ company.name }}</b>
+              
+              <br/>
+              <br/>
+              
+              <p>
+                {{ company.description }}
+              </p>
 
-          Worked as an offshore <strong>Full Stack Developer</strong>
-        </div>
-      </a>
-      <a class="box column is-one-third margin-10 company-box lexmark"
-        href="https://www.lexmark.com" rel="noreferrer" target="_blank"
-        role="link"  
-      >
-        <div class="content">
-          <strong>Lexmark International, Inc.</strong>
-          <br/>
-          <br/>
-          <p>
-            Provider of printing and imaging products, software, solutions and services
-            that help customers save time and money.
-          </p>
+              <br/>
 
-          Worked as a full-time <strong>Full Stack Developer</strong>
-        </div>
-      </a>
-    </div>
-
-    <div class="columns is-centered">
-      <a class="box column is-one-third margin-10 company-box hakoot"
-        href="http://hakoot.ph" rel="noreferrer" target="_blank"
-        role="link"
-      >
-        <div class="content">
-          <strong>Hakoot</strong>
-          <br/>
-          <br/>
-          <p>
-            Is a FREE app for easy garbage segregation and collection.
-          </p>
-
-          Worked as a part-time <strong>Full Stack Developer</strong>
-        </div>
-      </a>
-      <a class="box column is-one-third margin-10 company-box seriousdev"
-        href="https://seriousdevtech.com" rel="noreferrer" target="_blank"
-        role="link"
-      >
-        <div class="content">
-          <strong>Serious Dev Technology</strong>
-          <br/>
-          <br/>
-          <p>
-            A startup company that provides cost effective ERP solutions to
-            small and medium size companies.
-          </p>
-
-          Co-Founded and worked as a full-time <strong>Lead Software Engineer</strong>
-        </div>
-      </a>
-      <a class="box column is-one-third margin-10 company-box ncr"
-        href="https://www.ncr.com" rel="noreferrer" target="_blank"
-        role="link"
-      >
-        <div class="content">
-          <strong>NCR Corporation</strong>
-          <br/>
-          <br/>
-          <p>
-            Is the world's leading enterprise technology provider of software, hardware
-            and services for banks, retailers, restaurants, small business and telecom.
-          </p>
-
-          Worked as a full-time <strong>Software Engineer</strong>
-        </div>
-      </a>
-    </div>
+              {{ company["role-info"] | safe }}
+            </div>
+          </a>
+        {%- endfor %}
+      </div>
+    {%- endfor %}
   </div>

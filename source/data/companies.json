@@ -1,0 +1,70 @@
+{
+  "companies": [
+    {
+      "name": "Newlogic Pte Ltd",
+      "description": "A startup company that provides cost effective ERP solutions to small and medium size companies.",
+      "role-info": "Currently working as a full-time <b>Javascript Developer</b>",
+      "url": "https://newlogic.io",
+      "brand": {
+        "image": "newlogic.png",
+        "color": "#ffc233",
+        "size": "40%"
+      }
+    },
+    {
+      "name": "Zenventory",
+      "description": "Inventory Management Software for eCommerce Retailers, 3PLs, and Small Businesses.",
+      "role-info": "Worked as an offshore <b>Full Stack Developer</b>",
+      "url": "https://www.zenventory.com",
+      "brand": {
+        "image": "zenventory.svg",
+        "color": "#f36e44",
+        "size": "35%"
+      }
+    },
+    {
+      "name": "Lexmark International, Inc.",
+      "description": "Provider of printing and imaging products, software, solutions and services that help customers save time and money.",
+      "role-info": "Worked as a full-time <b>Full Stack Developer</b>",
+      "url": "https://www.lexmark.com",
+      "brand": {
+        "image": "lexmark.svg",
+        "color": "#fff",
+        "size": "45%"
+      }
+    },
+    {
+      "name": "Hakoot",
+      "url": "http://hakoot.ph",
+      "description": "Is a FREE app for easy garbage segregation and collection.",
+      "role-info": "Worked as a part-time <b>Full Stack Developer</b>",
+      "brand": {
+        "image": "hakoot.svg",
+        "color": "#66ae5a",
+        "size": "45%"
+      }
+    },
+    {
+      "name": "Serious Dev Technology",
+      "description": "A startup company that provides cost effective ERP solutions to small and medium size companies.",
+      "role-info": "Co-Founded and worked as a full-time <b>Lead Software Engineer</b>",
+      "url": "https://seriousdevtech.com",
+      "brand": {
+        "image": "seriousdev.png",
+        "color": "#fff",
+        "size": "55%"
+      }
+    },
+    {
+      "name": "NCR Corporation",
+      "description": "Is the world's leading enterprise technology provider of software, hardware and services for banks, retailers, restaurants, small business and telecom.",
+      "role-info": "Worked as a full-time <b>Software Engineer</b>",
+      "url": "https://www.ncr.com",
+      "brand": {
+        "image": "ncr.png",
+        "color": "#54bc4c",
+        "size": "45%"
+      }
+    }
+  ]
+}

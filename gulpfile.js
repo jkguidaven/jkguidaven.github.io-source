@@ -24,9 +24,10 @@ gulp.task("build:html", function () {
     .src(`${sourceFolder}/pages/**/*.+(html|nunjucks|njk)`)
     .pipe(
       data(function () {
-        return JSON.parse(
-          fs.readFileSync(`${sourceFolder}/data/skillset.json`)
-        );
+        return {
+          ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/skillset.json`)),
+          ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/companies.json`)),
+        };
       })
     )
     .pipe(

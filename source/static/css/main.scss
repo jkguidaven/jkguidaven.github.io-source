@@ -114,11 +114,9 @@ section.skillset {
 // }
 
 @media only screen and (min-width: 770px) {
-  .skillset-content {
-    .column:nth-child(2) {
-      border-left: 1px solid $white-ter;
-      border-right: 1px solid $white-ter;
-    }
+  .skillset-content .column:nth-child(2) {
+    border-left: 1px solid $white-ter;
+    border-right: 1px solid $white-ter;
   }
 }
 
@@ -147,6 +145,10 @@ section.skillset {
   .content {
     display: none;
     vertical-align: middle;
+
+    strong {
+      display: inline;
+    }
   }
 }
 .company-box:hover,
@@ -159,39 +161,6 @@ section.skillset {
   .content {
     display: table-cell;
   }
-}
-
-.company-box.newlogic {
-  background-image: url(/assets/images/companies/newlogic.png);
-  background-color: #ffc233;
-}
-
-.company-box.zenventory {
-  background-image: url(/assets/images/companies/zenventory.svg);
-  background-color: #f36e44;
-  background-size: 35%;
-}
-
-.company-box.lexmark {
-  background-image: url(/assets/images/companies/lexmark.svg);
-  background-size: 45%;
-}
-
-.company-box.hakoot {
-  background-image: url(/assets/images/companies/hakoot.svg);
-  background-color: #66ae5a;
-  background-size: 45%;
-}
-
-.company-box.seriousdev {
-  background-image: url(/assets/images/companies/seriousdev.png);
-  background-size: 55%;
-}
-
-.company-box.ncr {
-  background-image: url(/assets/images/companies/ncr.png);
-  background-color: #54bc4c;
-  background-size: 45%;
 }
 
 .companies-info-container {
