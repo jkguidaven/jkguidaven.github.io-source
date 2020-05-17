@@ -11,7 +11,7 @@ This project is built using Nunjucks templates and rendered to static file.
 
 ```bash
 # 1. Clone this repository.
-git clone git@github.com:jkguidaven/static-web-app-project.git
+git clone git@github.com:jkguidaven/jkguidaven.github.io-source.git
 
 ## 2. Install dependencies
 yarn install

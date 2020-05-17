@@ -1,7 +1,7 @@
 {
-  "name": "static-web-app",
+  "name": "jkguidaven.github.io",
   "version": "1.0.0",
-  "description": "Built using Nunjucks render",
+  "description": "My personal website",
   "scripts": {
     "lint:eslint": "eslint --fix",
     "lint": "yarn lint:eslint",
