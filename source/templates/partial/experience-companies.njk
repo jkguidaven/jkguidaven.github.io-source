@@ -16,7 +16,11 @@
             "
             role="link"
           >
-            <div class="content">
+            <div class="content"
+              style="
+                background-color: {{ company.brand.color }};
+                color: {{ company.brand['font-color'] }}
+              ">
               <b>{{ company.name }}</b>
               
               <br/>

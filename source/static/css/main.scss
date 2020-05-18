@@ -51,7 +51,7 @@ $box-padding: 60px;
 }
 
 .button.contact {
-  transition: ease-in 0.2s;
+  transition: ease-out 0.2s;
   border: 2px solid rgba(255, 255, 255, 0.4);
   color: white;
   background-color: transparent;
@@ -63,9 +63,12 @@ $box-padding: 60px;
   margin: 10px !important;
 }
 
-.button.contact:hover {
+.button.contact:hover,
+.button.contact:focus {
   background-color: #ee7a11;
   border: 2px solid #ee7a11;
+  outline: none;
+  box-shadow: none;
 }
 
 section.hero {
@@ -131,7 +134,7 @@ section.skillset {
 }
 
 .company-box {
-  transition: ease-in 0.2s;
+  transition: ease-out 0.2s;
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -139,12 +142,15 @@ section.skillset {
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
+  padding: 5px 4px 5px 4px;
   text-align: center;
   display: table;
 
   .content {
-    display: none;
+    border-radius: 15px;
+    padding: 10px;
     vertical-align: middle;
+    display: none;
 
     strong {
       display: inline;
@@ -153,10 +159,7 @@ section.skillset {
 }
 .company-box:hover,
 .company-box:focus {
-  background-size: 100% !important;
-  background-color: $primary-darker !important;
-  background-image: none !important;
-  color: $white !important;
+  background-size: 300% !important;
 
   .content {
     display: table-cell;

@@ -8,6 +8,7 @@
       "brand": {
         "image": "newlogic.png",
         "color": "#ffc233",
+        "font-color": "black",
         "size": "40%"
       }
     },
@@ -19,6 +20,7 @@
       "brand": {
         "image": "zenventory.svg",
         "color": "#f36e44",
+        "font-color": "white",
         "size": "35%"
       }
     },
@@ -30,6 +32,7 @@
       "brand": {
         "image": "lexmark.svg",
         "color": "#fff",
+        "font-color": "black",
         "size": "45%"
       }
     },
@@ -41,6 +44,7 @@
       "brand": {
         "image": "hakoot.svg",
         "color": "#66ae5a",
+        "font-color": "white",
         "size": "45%"
       }
     },
@@ -52,6 +56,7 @@
       "brand": {
         "image": "seriousdev.png",
         "color": "#fff",
+        "font-color": "black",
         "size": "55%"
       }
     },
@@ -63,6 +68,7 @@
       "brand": {
         "image": "ncr.png",
         "color": "#54bc4c",
+        "font-color": "white",
         "size": "45%"
       }
     }
