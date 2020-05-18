@@ -7,7 +7,7 @@ on:
       - "**"
 
 jobs:
-  lint-build:
+  lint-build-deploy:
     # generates static files in dest folder
     name: Lint and Build
     runs-on: ubuntu-latest
@@ -21,17 +21,11 @@ jobs:
 
       - run: yarn install
       - run: yarn build
-
-  deploy:
-    ## Deploy contents from dest folder to jkguidaven.github.io repository
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
       - uses: cpina/github-action-push-to-another-repository@master
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source-directory: 'dest'
-        destination-github-username: 'jkguidaven'
-        destination-repository-name: 'jkguidaven.github.io'
-        git-user-email: jkguidaven@gmail.com
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: "dest"
+          destination-github-username: "jkguidaven"
+          destination-repository-name: "jkguidaven.github.io"
+          git-user-email: jkguidaven@gmail.com
