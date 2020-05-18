@@ -32,3 +32,6 @@ Output files are generated in dist folder
 
 The project uses tools such as `eslint`, `prettier` & `editorconfig` to ensure quality of
 codes are properly check.
+
+Commits that are push to the `origin/master` branch will trigger a Github action that will
+deploy the output files of this project in `jkguidaven.github.io` repository.
