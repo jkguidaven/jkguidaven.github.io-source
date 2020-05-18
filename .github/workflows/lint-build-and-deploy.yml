@@ -1,0 +1,37 @@
+name: Lint, Build and Deploy Website
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "**"
+
+jobs:
+  lint-build:
+    # generates static files in dest folder
+    name: Lint and Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - run: yarn install
+      - run: yarn build
+
+  deploy:
+    ## Deploy contents from dest folder to jkguidaven.github.io repository
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: cpina/github-action-push-to-another-repository@master
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source-directory: 'dest'
+        destination-github-username: 'jkguidaven'
+        destination-repository-name: 'jkguidaven.github.io'
+        git-user-email: jkguidaven@gmail.com
