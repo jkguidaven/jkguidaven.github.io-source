@@ -3,6 +3,7 @@ const del = require("del");
 const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const postcss = require("gulp-postcss");
+const image = require("gulp-image");
 const data = require("gulp-data");
 const sass = require("gulp-sass");
 sass.compiler = require("node-sass");
@@ -41,6 +42,7 @@ gulp.task("build:html", function () {
 gulp.task("build:assets", function () {
   return gulp
     .src([`${sourceFolder}/static/assets/**`])
+    .pipe(image())
     .pipe(gulp.dest(`${outputFolder}/assets`));
 });
 
