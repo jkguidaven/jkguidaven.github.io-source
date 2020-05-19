@@ -4,6 +4,7 @@ const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const postcss = require("gulp-postcss");
 const image = require("gulp-image");
+const babel = require("gulp-babel");
 const data = require("gulp-data");
 const sass = require("gulp-sass");
 sass.compiler = require("node-sass");
@@ -52,6 +53,11 @@ gulp.task("build:js", function () {
       `${sourceFolder}/static/js/vendor/*.js`,
       `${sourceFolder}/static/js/main.js`,
     ])
+    .pipe(
+      babel({
+        presets: ["@babel/env"],
+      })
+    )
     .pipe(concat("js/bundle.js"))
     .pipe(terser())
     .pipe(gulp.dest(outputFolder));
