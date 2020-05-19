@@ -4,7 +4,8 @@
   "description": "My personal website",
   "scripts": {
     "lint:eslint": "eslint --fix",
-    "lint": "yarn lint:eslint",
+    "lint:stylelint": "stylelint --fix \"source/**/*.{css,scss}\"",
+    "lint": "yarn lint:eslint && yarn lint:stylelint",
     "build": "yarn lint && gulp build",
     "deploy": "yarn build && gulp deploy",
     "watch": "gulp watch",
@@ -35,6 +36,9 @@
     "node-sass": "^4.14.1",
     "postcss-uncss": "^0.17.0",
     "prettier": "^2.0.5",
+    "stylelint": "^13.4.1",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-prettier": "^1.1.2",
     "uncss": "^0.17.3"
   },
   "dependencies": {
