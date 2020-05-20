@@ -6,7 +6,9 @@ const postcss = require("gulp-postcss");
 const image = require("gulp-image");
 const babel = require("gulp-babel");
 const data = require("gulp-data");
+const cache = require("gulp-cached");
 const sass = require("gulp-sass");
+const flatmap = require("gulp-flatmap");
 sass.compiler = require("node-sass");
 const nunjucksRender = require("gulp-nunjucks-render");
 const cssnano = require("cssnano");
@@ -43,6 +45,7 @@ gulp.task("build:html", function () {
 gulp.task("build:assets", function () {
   return gulp
     .src([`${sourceFolder}/static/assets/**`])
+    .pipe(cache("assets"))
     .pipe(image())
     .pipe(gulp.dest(`${outputFolder}/assets`));
 });
@@ -65,20 +68,28 @@ gulp.task("build:js", function () {
 
 gulp.task("build:css", function () {
   return gulp
-    .src(`${sourceFolder}/static/css/**.+(css|scss)`)
+    .src(`${sourceFolder}/static/css/*.+(css|scss)`)
     .pipe(sass().on("error", sass.logError))
-    .pipe(concat("css/styles.css"))
+    .pipe(cache("css"))
     .pipe(
-      postcss([
-        uncss({
-          html: [`${outputFolder}/*.html`],
-          timeout: 100,
-        }),
-        autoprefixer,
-        cssnano,
-      ])
+      flatmap(function (stream, file) {
+        const subject = file.relative.replace(".css", "");
+        const htmlFile =
+          subject === "main" ? "index.html" : `${subject}/index.html`;
+
+        return stream.pipe(
+          postcss([
+            uncss({
+              html: [`${outputFolder}/${htmlFile}`],
+              timeout: 100,
+            }),
+            autoprefixer,
+            cssnano,
+          ])
+        );
+      })
     )
-    .pipe(gulp.dest(outputFolder));
+    .pipe(gulp.dest(`${outputFolder}/css`));
 });
 
 gulp.task("deploy", function () {
@@ -91,5 +102,8 @@ gulp.task(
 );
 
 gulp.task("watch", function () {
-  return gulp.watch(`${sourceFolder}/**`, gulp.series(["build"]));
+  return gulp.watch(
+    `${sourceFolder}/**`,
+    gulp.series(["build:html", "build:js", "build:assets", "build:css"])
+  );
 });
