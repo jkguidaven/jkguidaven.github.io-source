@@ -1,3 +1,4 @@
+{% set page = 'about' %}
 {% extends "layout.njk" %}
 
 {% block head %}
@@ -5,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-
-TO-DO 
+{% include "partial/about-introduction.njk" %}
+{% include "partial/about-timeline.njk" %}
 
 {% endblock %}

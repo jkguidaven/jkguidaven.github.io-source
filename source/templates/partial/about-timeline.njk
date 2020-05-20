@@ -1,0 +1,35 @@
+<main class="section work-experience has-background-white-ter">
+  <div class="columns is-centered">
+    <div class="column is-four-fifths">
+      <strong class="header">
+        Work experience & Education
+      </strong>
+
+      <div class="timeline">
+        <div class="line">
+          {% for record in timeline -%}  
+            <div class="record">
+              <span class="marker">
+                <i class="fa fa-{{ record.icon }}"></i>
+              </span>
+
+              <strong class="title">
+                {{ record.title }}
+              </strong>
+
+              <span class="subtitle">, {{ record.subtitle }}</span>
+              <br>
+              <span class="time"> {{ record.time }}</span>
+
+              <ul>
+                {% for item in record.items -%}
+                  <li>{{ item }}</li>
+                {%- endfor %}
+              </ul>
+            </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

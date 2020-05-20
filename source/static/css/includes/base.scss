@@ -47,3 +47,37 @@ $box-padding: 60px;
   outline: none;
   box-shadow: none;
 }
+
+.navbar {
+  width: 100%;
+  padding: 24px;
+
+  .navbar-brand {
+    font-size: 1.5em;
+    transition: ease-out 0.2s;
+  }
+
+  .navbar-brand:hover,
+  .navbar-brand:focus {
+    outline: none;
+    box-shadow: none;
+    color: #e45c0e;
+  }
+
+  .navbar-item {
+    .button.is-light {
+      background-color: transparent;
+      padding: 10px;
+      font-size: 1.1rem;
+    }
+
+    .button.active {
+      font-weight: bold;
+    }
+
+    .button.is-light:hover,
+    .button.is-light:focus {
+      color: #e45c0e;
+    }
+  }
+}

@@ -27,13 +27,15 @@
     <meta property="og:image" content="https://jkguidaven.github.io/assets/images/hero_ylu27k_c_scale,w_200.jpg" />
     <meta property="og:image" content="https://jkguidaven.github.io" />
 
-    <title>James Kenneth A. Guidaven</title>
+    <title>James Kenneth A. Guidaven {{ ("'s " + page) if page }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/29e1103c35.js" rel="preconnect"></script>
 
     {% block head %} {% endblock %}
   </head>
   <body>
+    {% include "partial/top-navigation.njk" %}
+
     {% block content %} {% endblock %}
 
     {% include "partial/footer.njk" %}

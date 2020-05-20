@@ -1,0 +1,76 @@
+{
+  "timeline": [
+    {
+      "icon": "briefcase",
+      "time": "OCT 2019 - PRESENT",
+      "title": "Newlogic Pte Ltd, Singapore",
+      "subtitle": "Javascript Developer",
+      "descriptor": "",
+      "items": [
+        "Developed a mobile solution for the clients using web technologies such as Vue.js, Vuetify, Firebase and Ionic Capacitor."
+      ]
+    },
+    {
+      "icon": "briefcase",
+      "time": "SEPT 2018 - OCT 2019",
+      "title": "Codev, Cebu Philippines",
+      "subtitle": "Full Stack Developer",
+      "descriptor": "",
+      "items": [
+        "Mainly contributed to the development of new features for Ubiquia's products namely Zenventory and Sqbx Packaging Tracking as an offshore Full Stack developer. Uses React.js, Material UI, PHP slime framework and prototype.js as technology stack.",
+        "Contributed on the work to integrate Zenventory to big players in the eCommerce industry such as BigCommerce, WooCommerce, Ebay, Amazon, Quickbook, Shipstation and ShipEasy. System integrations between third-party servers relies extensively on oAuth2/OIDC based API endpoints and web hooks."
+      ]
+    },
+    {
+      "icon": "briefcase",
+      "time": "JAN  2015 - DEC 2018",
+      "title": "Lexmark Research & Development Corp, Cebu Philippines",
+      "subtitle": "Full Stack Developer",
+      "descriptor": "",
+      "items": [
+        "Responsible for the maintenance and development of Lexmark Print Management - Premise Software Product Suite. Involved in every phase of the software development life cycle, namely analysis, design, coding, unit testing, integration testing, and deployment.",
+        "Lead the development of the new Admin Portal UI through the use of Angular framework. Ported existing functionalities from the existing Admin Portal UI and introduced new UI/UX improvements such as async processing and configurable Dashboard components.",
+        "Primary contributor to the development of the User portal through the use of Angular.js and Bootstrap CSS framework to support mobile first UI design.",
+        "Primary contributor to the development of User service built using Springboot as part of the new initiative to convert monolithic system to Microservice architecture. Implemented the user session based on Json Web token using Asymmetric key encryption.",
+        "Incorporated Hashids Library to mitigate direct object reference vulnerability that was existing in the product."
+      ]
+    },
+    {
+      "icon": "briefcase",
+      "time": "JAN  2014 - JAN 2015",
+      "title": "Serious Dev Technology, Cebu Philippines",
+      "subtitle": "Lead Software Engineer (Co-Founder)",
+      "descriptor": "",
+      "items": [
+        "Responsible for understanding the technological needs of the organization. Focuses on technical issues within the organization such as improving the productivity and efficiency of project development by adapting emerging technological trends in the development process. Also works as lead software engineer which is responsible for leading the development of major development projects.",
+        "Introduced Agile Development Methodology in the project development process improving the productivity and efficiency of the developers, Increase the speed of development while maintaining high-quality codes and providing client transparency on the development status.",
+        "Incorporated Industry standard development framework on major projects providing more manageable codes and greatly improves code reusability.",
+        "Leads Project development of ERP system of one of the client Ngosiok Marketing who is one of the biggest supplier of noodles related supplies in the Philippines. Used Laravel framework to build the MVC architecture and implemented the UI using Bootstrap CSS framework together with JQuery",
+        "Leads Project development of a specialize SMS broadcasting solution of 8990 Housing Development Corporation. Built the solution using Laravel/Lumens and Angular framework."
+      ]
+    },
+    {
+      "icon": "briefcase",
+      "time": "JAN  2011 - JAN 2014",
+      "title": "NCR Corporation, Cebu Philippines",
+      "subtitle": "Software Engineer",
+      "descriptor": "",
+      "items": [
+        "Contributed to the development on core application of NCR’s Self-Checkout product line. Specifically worked with the customization team which is responsible for customizing the core application module to work with the client’s retail environment and business requirements. The application uses proprietary architecture that is based on C/C++.",
+        "Assigned to lead the development of most ASPAC client related customization projects and consistently earned customer’s satisfaction by delivering projects on time while maintaining high quality codes.",
+        "Designed and developed application tool that reads SCO application text-base logs and present it into a graphical view. this provides developers a quick view of important log data cutting them time in pinpointing and highlighting information within multiple logs. Uses Java UI toolkit to build the interface"
+      ]
+    },
+    {
+      "icon": "graduation-cap",
+      "time": "2008 - 2011",
+      "title": "University of Cebu, Cebu Philippines",
+      "subtitle": "Bachelor of Science and Information Technology",
+      "descriptor": "",
+      "items": [
+        "Developed a Network-based tracking solution for monitoring user activities such as application processes on remote computers within a network. The solution allows network administrator to blacklist or whitelist certain applications from running on the machines.",
+        "Represented the school on battle of IT schools (BITS) and won 1st runner up in thesis competition"
+      ]
+    }
+  ]
+}

@@ -31,6 +31,7 @@ gulp.task("build:html", function () {
         return {
           ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/skillset.json`)),
           ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/companies.json`)),
+          ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/timeline.json`)),
         };
       })
     )
