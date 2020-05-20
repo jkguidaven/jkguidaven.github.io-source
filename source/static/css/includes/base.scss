@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+// Customization
+
+// You can easily customize Bulma with your own variables.
+// Just uncomment the following block to see the result.
+
+// 1. Import the initial variables
+@import "node_modules/bulma/sass/utilities/initial-variables.sass";
+
+$family-sans-serif: "Overpass", sans-serif;
+
+// 3. Set the derived variables
+// Use the new pink as the primary color
+$primary: #a34824;
+$primary-lighter: #ce6a0d;
+
+$box-shadow: none;
+$box-radius: 15px;
+$box-padding: 60px;
+
+// 4. Import the rest of Bulma
+
+@import "node_modules/bulma/bulma";
+
+.contact-links {
+  margin: 20px;
+  li {
+    display: inline-block !important;
+  }
+}
+
+.button.contact {
+  transition: ease-out 0.2s;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  background-color: transparent;
+  border-radius: 50%;
+  margin: 0 5px 20px;
+  user-select: none;
+}
+
+.button.contact:hover,
+.button.contact:focus {
+  background-color: #e45c0e;
+  border: 2px solid #e45c0e;
+  outline: none;
+  box-shadow: none;
+}

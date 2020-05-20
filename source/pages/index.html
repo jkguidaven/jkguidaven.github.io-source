@@ -1,9 +1,14 @@
 {% extends "layout.njk" %}
 
+{% block head %}
+  <link lazyload rel="stylesheet" href="css/main.css" />
+{% endblock %}
+
 {% block content %}
 
 {% include "partial/banner.njk" %}
 {% include "partial/introduction.njk" %}
 {% include "partial/experience.njk" %}
+{% include "partial/learn-more.njk" %}
 
 {% endblock %}
