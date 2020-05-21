@@ -27,8 +27,9 @@
     "gulp-babel": "^8.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-concat": "^2.6.1",
+    "gulp-data": "^1.3.1",
     "gulp-flatmap": "^1.0.2",
-    "gulp-image": "^6.1.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.1.0",
@@ -36,15 +37,12 @@
     "gulp-watch": "^5.0.1",
     "live-server": "^1.2.1",
     "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
     "postcss-uncss": "^0.17.0",
     "prettier": "^2.0.5",
     "stylelint": "^13.4.1",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-prettier": "^1.1.2",
     "uncss": "^0.17.3"
-  },
-  "dependencies": {
-    "gulp-data": "^1.3.1",
-    "npm-run-all": "^4.1.5"
   }
 }

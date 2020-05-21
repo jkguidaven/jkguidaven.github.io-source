@@ -3,7 +3,7 @@ const del = require("del");
 const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const postcss = require("gulp-postcss");
-const image = require("gulp-image");
+const imagemin = require("gulp-imagemin");
 const babel = require("gulp-babel");
 const data = require("gulp-data");
 const cache = require("gulp-cached");
@@ -47,7 +47,7 @@ gulp.task("build:assets", function () {
   return gulp
     .src([`${sourceFolder}/static/assets/**`])
     .pipe(cache("assets"))
-    .pipe(image())
+    .pipe(imagemin([imagemin.mozjpeg({ quality: 50 })]))
     .pipe(gulp.dest(`${outputFolder}/assets`));
 });
 
