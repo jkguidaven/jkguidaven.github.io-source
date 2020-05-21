@@ -29,7 +29,7 @@
 }
 
 .margin-10 {
-  margin: 10px !important;
+  margin: 20px !important;
 }
 
 section.hero {
@@ -53,6 +53,10 @@ section.about {
   background-size: cover;
   background-attachment: fixed;
   padding: 48px 28px 150px;
+
+  p {
+    font-size: 1.2rem;
+  }
 }
 
 .skillset {
@@ -63,10 +67,22 @@ section.about {
     margin-top: -150px;
     margin-bottom: -80px;
     text-align: center;
+    font-size: 1rem;
 
-    strong {
+    strong.role-label {
       display: block;
-      margin: 20px;
+      font-size: 1.2rem;
+    }
+
+    strong.has-text-weight-semibold {
+      display: block;
+      margin: 20px 0 5px;
+    }
+
+    .role-icon {
+      width: 64px;
+      height: 64px;
+      margin: 24px;
     }
   }
 }
@@ -76,7 +92,7 @@ section.about {
 
   .learn-more-button {
     display: inline-block;
-    color: #e45c0e;
+    color: $black-ter;
     border-radius: 25px;
     padding: 15px 20px;
     transition: ease-out 0.1s;
@@ -90,10 +106,9 @@ section.about {
     }
   }
 
-  .learn-more-button:focus {
-    background-color: #e45c0e;
-    border-color: #e45c0e;
-    color: white;
+  .learn-more-button:focus,
+  .learn-more-button:hover {
+    color: #e45c0e;
     outline: none;
     box-shadow: none;
   }

@@ -2,6 +2,7 @@
   "roles": [
     {
       "name": "Front-end Developer",
+      "icon": "frontend.svg",
       "description": "I mostly build Front-end applications using modern UI frameworks which help speed up development while maintaining high quality codes.",
       "languages": ["Javascript", "HTML/CSS", "Typscript"],
       "tools": [
@@ -22,6 +23,7 @@
     },
     {
       "name": "Back-end Developer",
+      "icon": "backend.svg",
       "description": "I mainly use Java-based framework when building web services however I also use PHP frameworks when building prototypes or POC.",
       "languages": ["Java", "C#", "PHP & Go"],
       "tools": [
@@ -38,6 +40,7 @@
     },
     {
       "name": "Software Engineer",
+      "icon": "sweng.svg",
       "description": "It is important for me to understand software engineering fundamentals when building fast and high quality applications.",
       "knowledge": [
         "Algorithm & Datastructure",
