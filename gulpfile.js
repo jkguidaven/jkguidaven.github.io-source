@@ -81,7 +81,9 @@ gulp.task("build:css", function () {
         return stream.pipe(
           postcss([
             uncss({
+              htmlroot: outputFolder,
               html: [`${outputFolder}/${htmlFile}`],
+              ignore: [/^(\.navbar-burger).*/, /^(\.navbar-menu).*/],
               timeout: 100,
             }),
             autoprefixer,
