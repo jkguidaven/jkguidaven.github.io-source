@@ -1,0 +1,25 @@
+.section.under-construction {
+  height: calc(100% - 437px);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  strong {
+    display: block;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  .description {
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
+
+  img {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+    height: auto;
+  }
+}
