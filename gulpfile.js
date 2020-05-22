@@ -14,7 +14,10 @@ const nunjucksRender = require("gulp-nunjucks-render");
 const cssnano = require("cssnano");
 const uncss = require("postcss-uncss");
 const autoprefixer = require("autoprefixer");
-var fs = require("fs");
+const fs = require("fs");
+
+// Load environment variable
+require("dotenv").config();
 
 const sourceFolder = "source";
 const outputFolder = "dest";
@@ -29,6 +32,7 @@ gulp.task("build:html", function () {
     .pipe(
       data(function () {
         return {
+          GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
           ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/skillset.json`)),
           ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/companies.json`)),
           ...JSON.parse(fs.readFileSync(`${sourceFolder}/data/timeline.json`)),
