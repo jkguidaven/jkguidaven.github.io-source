@@ -4,6 +4,7 @@ const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const postcss = require("gulp-postcss");
 const imagemin = require("gulp-imagemin");
+const htmlmin = require("gulp-htmlmin");
 const babel = require("gulp-babel");
 const data = require("gulp-data");
 const cache = require("gulp-cached");
@@ -42,6 +43,20 @@ gulp.task("build:html", function () {
     .pipe(
       nunjucksRender({
         path: [`${sourceFolder}/templates`],
+      })
+    )
+    .pipe(
+      htmlmin({
+        collapseInlineTagWhitespace: true,
+        collapseBooleanAttributes: true,
+        collapseWhitespace: true,
+        sortAttributes: true,
+        sortClassName: true,
+        removeComments: true,
+        quoteCharacter: true,
+        minifyURLs: true,
+        minifyJS: true,
+        minifyCSS: true,
       })
     )
     .pipe(gulp.dest(outputFolder));
