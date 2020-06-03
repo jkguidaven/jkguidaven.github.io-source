@@ -2,7 +2,8 @@
 {% extends "layout.njk" %}
 
 {% block head %}
-  <link async rel="stylesheet" href="/css/projects.css" />
+  <link rel="stylesheet" href="/css/projects.css"
+    rel="preload" onload="this.rel='stylesheet'" as="style" />
 {% endblock %}
 
 {% block content %}
