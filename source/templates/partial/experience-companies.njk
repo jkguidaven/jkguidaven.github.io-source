@@ -7,13 +7,13 @@
     {% for group in range(0, companies.length / 3) -%}
       <div class="columns is-centered" style="margin-bottom: 25px">
         {% for company in companies.slice(group * 3,(group * 3) + 3) -%}
-          <a class="box column is-one-third margin-10 company-box"
+          <a class="box column is-one-third margin-10 company-box lazyload"
             href="{{ company.url }}" rel="noreferrer" target="_blank"
             style="
-              background-image: url(/assets/images/companies/{{ company.brand.image }});
               background-color: {{ company.brand.color }};
               background-size: {{ company.brand.size }};
             "
+            data-bg="/assets/images/companies/{{ company.brand.image }}"
             aria-label="{{ company.name }} link button"
             role="link"
           >

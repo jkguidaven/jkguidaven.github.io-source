@@ -86,6 +86,15 @@ gulp.task("build:js", function () {
     .pipe(gulp.dest(outputFolder));
 });
 
+gulp.task("include:lazysizes", function () {
+  return gulp
+    .src([
+      "node_modules/lazysizes/lazysizes.min.js",
+      "node_modules/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js",
+    ])
+    .pipe(gulp.dest(`${outputFolder}/js`));
+});
+
 gulp.task("build:css", function () {
   return gulp
     .src(`${sourceFolder}/static/css/*.+(css|scss)`)
@@ -120,12 +129,25 @@ gulp.task("deploy", function () {
 
 gulp.task(
   "build",
-  gulp.series(["clean", "build:html", "build:js", "build:assets", "build:css"])
+  gulp.series([
+    "clean",
+    "build:html",
+    "build:js",
+    "build:assets",
+    "build:css",
+    "include:lazysizes",
+  ])
 );
 
 gulp.task("watch", function () {
   return gulp.watch(
     `${sourceFolder}/**`,
-    gulp.series(["build:html", "build:js", "build:assets", "build:css"])
+    gulp.series([
+      "build:html",
+      "build:js",
+      "build:assets",
+      "build:css",
+      "include:lazysizes",
+    ])
   );
 });
