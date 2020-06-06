@@ -1,0 +1,60 @@
+@import "includes/base.scss";
+@import "includes/under-construction.scss";
+
+.section {
+  padding: 60px 24px;
+
+  strong.header {
+    display: inline-block;
+    font-size: 2.3rem;
+    font-weight: 900;
+    margin: 20px 0 10px;
+  }
+
+  .subtitle {
+    display: block;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.is-hidden {
+  display: none;
+}
+
+/* uncss:ignore start */
+#github-repositories-container {
+  .column > div {
+    margin: 10px;
+    padding: 25px;
+    height: 100%;
+    border-radius: 25px;
+
+    > a h1 {
+      color: black;
+      font-size: 1.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    > span {
+      font-size: 0.9rem;
+      font-weight: 200;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-right: 10px;
+      color: $primary;
+    }
+
+    > p {
+      height: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 30px;
+    }
+  }
+}
+/* uncss:ignore end */

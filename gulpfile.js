@@ -1,6 +1,5 @@
 const gulp = require("gulp");
 const del = require("del");
-const concat = require("gulp-concat");
 const terser = require("gulp-terser");
 const postcss = require("gulp-postcss");
 const imagemin = require("gulp-imagemin");
@@ -72,18 +71,14 @@ gulp.task("build:assets", function () {
 
 gulp.task("build:js", function () {
   return gulp
-    .src([
-      `${sourceFolder}/static/js/vendor/*.js`,
-      `${sourceFolder}/static/js/main.js`,
-    ])
+    .src([`${sourceFolder}/static/js/*.js`])
     .pipe(
       babel({
         presets: ["@babel/env"],
       })
     )
-    .pipe(concat("js/bundle.js"))
     .pipe(terser())
-    .pipe(gulp.dest(outputFolder));
+    .pipe(gulp.dest(`${outputFolder}/js`));
 });
 
 gulp.task("include:lazysizes", function () {
