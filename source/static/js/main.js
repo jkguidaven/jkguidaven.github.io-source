@@ -33,8 +33,8 @@ function animateSkillsetBox() {
    * This will slightly slide the about box above by 150px when the
    * viewport is getting closer to the element.
    */
-  const MAX_OFFSET = 320;
   const aboutBox = document.querySelector("#about-box");
+  const MAX_OFFSET = aboutBox.offsetHeight - 80;
   const bottom = aboutBox.offsetTop + aboutBox.offsetHeight;
   const top = window.scrollY + window.innerHeight;
   const offset = bottom - top + MAX_OFFSET;
