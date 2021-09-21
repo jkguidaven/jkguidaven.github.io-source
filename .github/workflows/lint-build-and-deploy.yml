@@ -23,7 +23,7 @@ jobs:
       - run: yarn build
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-      - uses: cpina/github-action-push-to-another-repository@master
+      - uses: cpina/github-action-push-to-another-repository@v1
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
