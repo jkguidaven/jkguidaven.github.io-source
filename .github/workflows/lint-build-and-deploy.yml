@@ -23,11 +23,11 @@ jobs:
       - run: yarn build
         env:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-      - uses: cpina/github-action-push-to-another-repository@v1
+      - uses: cpina/github-action-push-to-another-repository@v1.3
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: "dest"
           destination-github-username: "jkguidaven"
           destination-repository-name: "jkguidaven.github.io"
-          git-user-email: jkguidaven@gmail.com
+          user-email: jkguidaven@gmail.com
