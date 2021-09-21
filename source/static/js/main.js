@@ -33,7 +33,7 @@ function animateSkillsetBox() {
    * This will slightly slide the about box above by 150px when the
    * viewport is getting closer to the element.
    */
-  const MAX_OFFSET = 150;
+  const MAX_OFFSET = 320;
   const aboutBox = document.querySelector("#about-box");
   const bottom = aboutBox.offsetTop + aboutBox.offsetHeight;
   const top = window.scrollY + window.innerHeight;
@@ -57,4 +57,43 @@ function animateSkillsetBox() {
   });
 }
 
-function animateAffiliationBox() {}
+function animateAffiliationBox() {
+  const label = document.querySelector(".companies-info-container .subtitle");
+  const hr = document.querySelector(".companies-info-container hr");
+
+  if (window.innerHeight > label.getBoundingClientRect().top + 200) {
+    label.style.transform = "translate(0)";
+    label.style.opacity = "1";
+    hr.style.transform = "translate(0)";
+    hr.style.opacity = "1";
+  } else {
+    label.style.transform = "translate(-100%)";
+    label.style.opacity = "0";
+    hr.style.transform = "translate(100%)";
+    hr.style.opacity = "0";
+  }
+
+  if (window.innerHeight > hr.getBoundingClientRect().top + 400) {
+    document.querySelectorAll(".company-box").forEach((box) => {
+      box.style.transform = "translate(0)";
+      box.style.opacity = "1";
+    });
+  } else {
+    document.querySelectorAll(".company-box").forEach((box, i) => {
+      const animationType = (i + 1) % 3;
+
+      switch (animationType) {
+        case 0:
+          box.style.transform = "translate(-100%)";
+          break;
+        case 1:
+          box.style.transform = "translate(100%)";
+          break;
+        case 2:
+          box.style.transform = "translate(0,100%)";
+          break;
+      }
+      box.style.opacity = "0";
+    });
+  }
+}
