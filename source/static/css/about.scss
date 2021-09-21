@@ -25,6 +25,11 @@
 
   p {
     font-size: 1.1rem;
+
+    strong {
+      display: inline-block;
+      margin: 0 5px;
+    }
   }
 }
 

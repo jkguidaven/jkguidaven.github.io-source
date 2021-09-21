@@ -4,32 +4,35 @@
       "icon": "briefcase",
       "time": "OCT 2019 - PRESENT",
       "title": "Newlogic Pte Ltd, Singapore",
-      "subtitle": "Javascript Developer",
+      "subtitle": "Software Engineer",
       "descriptor": "",
       "items": [
-        "Developed a mobile solution for the clients using web technologies such as Vue.js, Vuetify, Firebase and Ionic Capacitor."
+        "Worked in agile framework as an individual contributor with responsibilities that includes interaction with Business Analyst team in story grooming, reviewing and story/acceptance criteria.",
+        "Designed and developed mobile solutions using web technologies such as Vue.js, Angular, React.js, Ionic framework & React Native.",
+        "Designed and Implemented Microservice architecture that can easily scale with high traffic demand. Uses various AWS cloud services such as DynamoDB, API Gateway, Lambda functions, SNS, SQS, ElasticCache, Cognito, etc. Uses Node.js framework for building microservices.",
+        "Developed POC application that compliments to the IDPASS ecosystem."
       ]
     },
     {
       "icon": "briefcase",
       "time": "SEPT 2018 - OCT 2019",
       "title": "Codev, Cebu Philippines",
-      "subtitle": "Full Stack Developer",
+      "subtitle": "Fullstack Software Engineer",
       "descriptor": "",
       "items": [
-        "Mainly contributed to the development of new features for Ubiquia's products namely Zenventory and Sqbx Packaging Tracking as an offshore Full Stack developer. Uses React.js, Material UI, PHP slime framework and prototype.js as technology stack.",
-        "Contributed on the work to integrate Zenventory to big players in the eCommerce industry such as BigCommerce, WooCommerce, Ebay, Amazon, Quickbook, Shipstation and ShipEasy. System integrations between third-party servers relies extensively on oAuth2/OIDC based API endpoints and web hooks."
+        "Worked as an individual contributor to the development of new features for Ubiquia's service offering namely Zenventory and Sqbx Packaging Tracking as an offshore Software engineer. Uses React.js, Material UI, PHP slime framework and prototype.js as the main technology stack.",
+        "Integrated Zenventory to big players in the eCommerce industry such as BigCommerce, WooCommerce, Ebay, Amazon, Quickbook, Shipstation and ShipEasy. System integrations between third-party servers relies extensively on oAuth2/OIDC based API endpoints and web hooks."
       ]
     },
     {
       "icon": "briefcase",
       "time": "JAN  2015 - DEC 2018",
       "title": "Lexmark Research & Development Corp, Cebu Philippines",
-      "subtitle": "Full Stack Developer",
+      "subtitle": "Software Engineer",
       "descriptor": "",
       "items": [
-        "Responsible for the maintenance and development of Lexmark Print Management - Premise Software Product Suite. Involved in every phase of the software development life cycle, namely analysis, design, coding, unit testing, integration testing, and deployment.",
-        "Lead the development of the new Admin Portal UI through the use of Angular framework. Ported existing functionalities from the existing Admin Portal UI and introduced new UI/UX improvements such as async processing and configurable Dashboard components.",
+        "Responsible for the maintenance and development of Lexmark Print Management - Premise Software Product Suite. Involved in every phase of the software development life cycle that includes analysis, design, coding, unit testing, integration testing, and deployment.",
+        "Lead the development of the new Admin Portal UI through the use of Modern Angular framework. Ported existing functionalities from the existing Admin Portal UI and introduced new UI/UX improvements such as async processing, responsive design and configurable Dashboard components.",
         "Primary contributor to the development of the User portal through the use of Angular.js and Bootstrap CSS framework to support mobile first UI design.",
         "Primary contributor to the development of User service built using Springboot as part of the new initiative to convert monolithic system to Microservice architecture. Implemented the user session based on Json Web token using Asymmetric key encryption.",
         "Incorporated Hashids Library to mitigate direct object reference vulnerability that was existing in the product."
@@ -69,6 +72,7 @@
       "descriptor": "",
       "items": [
         "Developed a Network-based tracking solution for monitoring user activities such as application processes on remote computers within a network. The solution allows network administrator to blacklist or whitelist certain applications from running on the machines.",
+        "Developed and Designed a Visualizer of OS CPU scheduler and Memory management",
         "Represented the school on battle of IT schools (BITS) and won 1st runner up in thesis competition"
       ]
     }

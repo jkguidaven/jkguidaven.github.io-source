@@ -2,8 +2,8 @@
   "companies": [
     {
       "name": "Newlogic Pte Ltd",
-      "description": "A startup company that provides cost effective ERP solutions to small and medium size companies.",
-      "role-info": "Currently working as a full-time <b>Javascript Developer</b>",
+      "description": "Newlogic is a software consultancy company headquartered in Singapore with offices throughout Southeast Asia.",
+      "role-info": "Currently working as a full-time <b>Software Developer</b>",
       "url": "https://newlogic.io",
       "brand": {
         "image": "newlogic.png",
@@ -15,7 +15,7 @@
     {
       "name": "Zenventory",
       "description": "Inventory Management Software for eCommerce Retailers, 3PLs, and Small Businesses.",
-      "role-info": "Worked as an offshore <b>Full Stack Developer</b>",
+      "role-info": "Worked as an offshore <b>Full Stack Software Engineer</b>",
       "url": "https://www.zenventory.com",
       "brand": {
         "image": "zenventory.svg",
@@ -27,7 +27,7 @@
     {
       "name": "Lexmark International, Inc.",
       "description": "Provider of printing and imaging products, software, solutions and services that help customers save time and money.",
-      "role-info": "Worked as a full-time <b>Full Stack Developer</b>",
+      "role-info": "Worked as a full-time <b>Software Engineer</b>",
       "url": "https://www.lexmark.com",
       "brand": {
         "image": "lexmark.svg",
@@ -40,7 +40,7 @@
       "name": "Hakoot",
       "url": "http://hakoot.ph",
       "description": "Is a FREE app for easy garbage segregation and collection.",
-      "role-info": "Worked as a part-time <b>Full Stack Developer</b>",
+      "role-info": "Worked as a part-time <b>Software Engineer</b>",
       "brand": {
         "image": "hakoot.svg",
         "color": "#66ae5a",
