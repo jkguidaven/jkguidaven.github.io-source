@@ -4,54 +4,55 @@
       <div class="box columns">
         {% for role in roles -%}
           <div class="column">
-            <img
+            <div
               class="role-icon"
-              src="/assets/images/{{ role.icon }}"
+              style="background-image: url('/assets/images/{{ role.icon }}')"
               aria-hidden="true"
-            />
+            ></div>
 
             <strong class="role-label title is-5 has-text-weight-bold">  
               {{ role.name }}
             </strong>
 
-            <p>
-              {{ role.description }}
-            </p>
-
-            {% if role.languages %}
-              <strong class="has-text-weight-semibold has-text-primary margin-10">
-                Languages I speak:
-              </strong>
-
+            <div class="role-content">
               <p>
-                {{ role.languages | join(", ") }}
+                {{ role.description }}
               </p>
-            {% endif %}
 
-            {% if role.tools %}
-              <strong class="has-text-weight-semibold has-text-primary margin-10">
-                Tools I use:
-              </strong>
-              
-              <ul>
-                {% for tool in role.tools -%}
-                  <li>{{ tool }}</li>
-                {%- endfor %}
-              </ul>
-            {% endif %}
+              {% if role.languages %}
+                <strong class="has-text-weight-semibold has-text-primary margin-10">
+                  Languages I speak:
+                </strong>
 
-            {% if role.knowledge %}
-              <strong class="has-text-weight-semibold has-text-primary margin-10">
-                Knowledges and Principles I follow:
-              </strong>
+                <p>
+                  {{ role.languages | join(", ") }}
+                </p>
+              {% endif %}
 
-              <ul>
-                {% for knowledge in role.knowledge -%}
-                <li>{{ knowledge }}</li>
-                {%- endfor %}
-              </ul>
-            {% endif %}
+              {% if role.tools %}
+                <strong class="has-text-weight-semibold has-text-primary margin-10">
+                  Tools I use:
+                </strong>
+                
+                <ul>
+                  {% for tool in role.tools -%}
+                    <li>{{ tool }}</li>
+                  {%- endfor %}
+                </ul>
+              {% endif %}
 
+              {% if role.knowledge %}
+                <strong class="has-text-weight-semibold has-text-primary margin-10">
+                  Knowledges and Principles I follow:
+                </strong>
+
+                <ul>
+                  {% for knowledge in role.knowledge -%}
+                  <li>{{ knowledge }}</li>
+                  {%- endfor %}
+                </ul>
+              {% endif %}
+            </div>
           </div>
         {%- endfor %}
     </div>

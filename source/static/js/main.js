@@ -46,15 +46,29 @@ function animateSkillsetBox() {
   /*
    * This will fadely show or hide the role icons
    */
-  document.querySelectorAll(".role-icon").forEach((icon) => {
-    if (margin === MAX_OFFSET) {
+  if (margin >= MAX_OFFSET - 100) {
+    document.querySelectorAll(".role-icon").forEach((icon) => {
       icon.style.opacity = 1;
-      icon.style.filter = "sepia(60%)";
-    } else {
+    });
+
+    document.querySelectorAll(".role-label, .role-content").forEach((box) => {
+      box.style.transform = "translate(0)";
+      box.style.opacity = "1";
+    });
+  } else {
+    document.querySelectorAll(".role-icon").forEach((icon) => {
       icon.style.opacity = 0;
-      icon.style.filter = "sepia(0)";
-    }
-  });
+    });
+
+    document.querySelectorAll(".role-label").forEach((box, i) => {
+      box.style.transform = "translate(0, 100%)";
+      box.style.opacity = "0";
+    });
+
+    document.querySelectorAll(".role-content").forEach((box, i) => {
+      box.style.opacity = "0";
+    });
+  }
 }
 
 function animateAffiliationBox() {

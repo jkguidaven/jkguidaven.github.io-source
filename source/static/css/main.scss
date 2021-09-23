@@ -60,17 +60,7 @@ section.about {
 }
 
 .skillset {
-  background-color: #ffffff;
-  background-size: cover;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(245, 245, 245, 0.9),
-      rgb(245, 245, 245)
-    ),
-    url("/assets/images/skill-background.svg");
-  background-size: 50%;
-  background-position: top;
-  background-attachment: fixed;
+  background: #ffffff url("/assets/images/main-bg.svg") 20% center no-repeat;
 
   .skillset-content {
     margin-bottom: -80px;
@@ -84,20 +74,49 @@ section.about {
 
     strong.role-label {
       display: block;
-      font-size: 1.2rem;
+      font-size: 2rem;
+      margin-bottom: 32px;
+      font-weight: 700;
     }
 
     strong.has-text-weight-semibold {
       display: block;
       margin: 20px 0 5px;
+      font-size: 1.5rem;
     }
 
     .role-icon {
-      width: 64px;
-      height: 64px;
-      margin: 24px;
+      background-size: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #f3f3f3;
+      border-radius: 50%;
+      margin: 16px auto;
+      width: 128px;
+      height: 128px;
       opacity: 0;
       transition: opacity ease-out 1s;
+    }
+
+    .role-label {
+      opacity: 0;
+      transform: translate(0);
+      transition: all ease-out 0.3s;
+    }
+
+    .role-content {
+      opacity: 0;
+      transition: all ease-out 1s;
+    }
+
+    ul {
+      li {
+        margin: 10px;
+      }
+    }
+
+    p {
+      margin: 32px 16px;
     }
   }
 }
