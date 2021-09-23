@@ -40,6 +40,10 @@ section.hero {
   .greetings {
     display: block;
     margin: 20px;
+
+    strong {
+      margin: 0 10px;
+    }
   }
 
   .hero-body {

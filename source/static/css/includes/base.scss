@@ -8,7 +8,9 @@
 // 1. Import the initial variables
 @import "node_modules/bulma/sass/utilities/initial-variables.sass";
 
-$family-sans-serif: "Overpass", sans-serif;
+@import "./font.scss";
+
+$family-sans-serif: "DM Sans", sans-serif;
 
 // 3. Set the derived variables
 // Use the new pink as the primary color
@@ -131,4 +133,9 @@ body {
       }
     }
   }
+}
+
+strong,
+a {
+  margin: 0 5px;
 }

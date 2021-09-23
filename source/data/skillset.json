@@ -1,7 +1,7 @@
 {
   "roles": [
     {
-      "name": "Front-end",
+      "name": "Frontend",
       "icon": "frontend.svg",
       "description": "I mostly build Front-end applications using modern UI frameworks which help speed up development while maintaining high quality codes.",
       "languages": ["Javascript/Typescript", "HTML5/CSS3"],
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "name": "Back-end",
+      "name": "Backend",
       "icon": "backend.svg",
       "description": "I mainly use Node-based framework when building web services however I also use PHP, Go and Java frameworks when building for specific requirements.",
       "languages": ["Javascript", "Java", "PHP", "Go"],
