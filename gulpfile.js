@@ -14,7 +14,9 @@ const nunjucksRender = require("gulp-nunjucks-render");
 const cssnano = require("cssnano");
 const uncss = require("postcss-uncss");
 const autoprefixer = require("autoprefixer");
+var replace = require("gulp-replace");
 const fs = require("fs");
+const inject = require("gulp-inject");
 
 // Load environment variable
 require("dotenv").config();
@@ -42,20 +44,6 @@ gulp.task("build:html", function () {
     .pipe(
       nunjucksRender({
         path: [`${sourceFolder}/templates`],
-      })
-    )
-    .pipe(
-      htmlmin({
-        collapseInlineTagWhitespace: true,
-        collapseBooleanAttributes: true,
-        collapseWhitespace: true,
-        sortAttributes: true,
-        sortClassName: true,
-        removeComments: true,
-        quoteCharacter: true,
-        minifyURLs: true,
-        minifyJS: true,
-        minifyCSS: true,
       })
     )
     .pipe(gulp.dest(outputFolder));
@@ -118,6 +106,60 @@ gulp.task("build:css", function () {
     .pipe(gulp.dest(`${outputFolder}/css`));
 });
 
+gulp.task("merge:css", function () {
+  return gulp
+    .src(`${outputFolder}/**/*.html`)
+    .pipe(
+      flatmap(function (stream, file) {
+        const subject = file.relative
+          .replace("index.html", "")
+          .replace("/", "");
+        const cssfile = subject === "" ? "main.css" : `${subject}.css`;
+        return stream
+          .pipe(inject(gulp.src(`${outputFolder}/css/${cssfile}`)))
+          .pipe(
+            replace(/<link rel="stylesheet" href="[^"]*"*>/g, function (
+              linkTag
+            ) {
+              var style = fs.readFileSync(
+                `.${getCSSFilename(linkTag)}`,
+                "utf8"
+              );
+              return "<style>\n" + style + "\t</style>";
+            })
+          );
+      })
+    )
+    .pipe(gulp.dest(outputFolder));
+});
+
+function getCSSFilename(linkTag) {
+  var hrefValue = /href\=\"([A-Za-z0-9/._]*)\"/g;
+  var cssFilename = linkTag.match(hrefValue);
+  cssFilename = cssFilename[0].replace('href="', "").replace('"', "");
+  return cssFilename;
+}
+
+gulp.task("minify:html", function () {
+  return gulp
+    .src(`${outputFolder}/**/*.html`)
+    .pipe(
+      htmlmin({
+        collapseInlineTagWhitespace: true,
+        collapseBooleanAttributes: true,
+        collapseWhitespace: true,
+        sortAttributes: true,
+        sortClassName: true,
+        removeComments: true,
+        quoteCharacter: true,
+        minifyURLs: true,
+        minifyJS: true,
+        minifyCSS: true,
+      })
+    )
+    .pipe(gulp.dest(outputFolder));
+});
+
 gulp.task("deploy", function () {
   // write your script here to deploy app to your server
 });
@@ -130,7 +172,9 @@ gulp.task(
     "build:js",
     "build:assets",
     "build:css",
+    "merge:css",
     "include:lazysizes",
+    "minify:html",
   ])
 );
 
@@ -142,6 +186,7 @@ gulp.task("watch", function () {
       "build:js",
       "build:assets",
       "build:css",
+      "merge:css",
       "include:lazysizes",
     ])
   );
