@@ -1,20 +1,28 @@
-<section class="timeline-section" id="experience">
-  <div class="section-eyebrow">Career</div>
-  <h2 class="section-title">Experience & Education</h2>
+<main class="timeline-section" id="experience">
+  <h2 class="section-title">Work Experience & Education</h2>
 
   <div class="timeline">
-    {% for record in timeline -%}
-      <div class="timeline-entry {{ 'education' if record.icon === 'graduation-cap' }}">
-        <span class="entry-time">{{ record.time }}</span>
-        <div class="entry-title">{{ record.title }}</div>
-        <div class="entry-subtitle">{{ record.subtitle }}</div>
+    <div class="line">
+      {% for record in timeline -%}
+        <div class="record fade-up">
+          <span class="marker">
+            <i class="fa fa-{{ record.icon }}"></i>
+          </span>
 
-        <ul class="entry-items">
-          {% for item in record.items -%}
-            <li>{{ item }}</li>
-          {%- endfor %}
-        </ul>
-      </div>
-    {%- endfor %}
+          <span class="entry-time">{{ record.time }}</span>
+
+          <br>
+
+          <strong class="title">{{ record.title }}</strong>
+          <span class="subtitle">, {{ record.subtitle }}</span>
+
+          <ul>
+            {% for item in record.items -%}
+              <li>{{ item }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+      {%- endfor %}
+    </div>
   </div>
-</section>
+</main>

@@ -1,6 +1,17 @@
 {
   "companies": [
     {
+      "name": "Automattic Inc.",
+      "role": "Software Engineer",
+      "url": "https://automattic.com/",
+      "brand": {
+        "image": "automattic.svg",
+        "color": "#fff",
+        "font-color": "black",
+        "size": "60%"
+      }
+    },
+    {
       "name": "Newlogic Pte Ltd",
       "role": "Software Engineer",
       "url": "https://newlogic.io",

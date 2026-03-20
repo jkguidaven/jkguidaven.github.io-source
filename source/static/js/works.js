@@ -64,23 +64,26 @@ document.addEventListener("DOMContentLoaded", () => {
   gitHubRepositoryFetch().then((repositories) => {
     container.innerHTML = "";
     repositories.forEach(({ name, description, link, languages }) => {
-      const card = document.createElement("div");
-      card.classList.add("repo-card");
+      const infoBox = document.createElement("div");
+      infoBox.classList.add("column");
+      infoBox.classList.add("is-4");
 
       let languagesHtml = "";
       languages.forEach((language) => {
         languagesHtml += `<span>${language}</span>`;
       });
 
-      card.innerHTML = `
-        <a href='${link}' target='_blank' rel='noreferrer'>
-          <h1>${name}</h1>
-        </a>
-        <p>${description || "No description"}</p>
-        <div class='repo-languages'>${languagesHtml}</div>
+      infoBox.innerHTML = `
+        <div class='repo-card'>
+          <a href='${link}' target='_blank' rel='noreferrer' role='link'>
+            <h1>${name}</h1>
+          </a>
+          <p>${description || "No description"}</p>
+          <div class='repo-languages'>${languagesHtml}</div>
+        </div>
       `;
 
-      container.append(card);
+      container.append(infoBox);
     });
   });
 });

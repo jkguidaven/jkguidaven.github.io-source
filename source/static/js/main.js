@@ -1,16 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Navbar burger toggle
-  const burgers = document.querySelectorAll(".navbar-burger");
-  burgers.forEach((el) => {
-    el.addEventListener("click", () => {
-      const target = document.querySelector(`#${el.dataset.target}`);
-      el.classList.toggle("is-active");
-      el.setAttribute("aria-expanded", el.classList.contains("is-active"));
-      target.classList.toggle("is-active");
-    });
-  });
+  const $navbarBurgers = Array.prototype.slice.call(
+    document.querySelectorAll(".navbar-burger"),
+    0
+  );
 
-  // Subtle fade-in on scroll
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach((el) => {
+      el.addEventListener("click", () => {
+        const target = el.dataset.target;
+        const $target = document.querySelector(`#${target}`);
+        el.classList.toggle("is-active");
+        el.setAttribute("aria-expanded", el.classList.contains("is-active"));
+        $target.classList.toggle("is-active");
+      });
+    });
+  }
+
+  // Scroll fade-in animation
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -23,8 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.1 }
   );
 
-  document.querySelectorAll(".skill-card, .company-card, .timeline-entry").forEach((el) => {
-    el.classList.add("fade-in");
+  document.querySelectorAll(".fade-up").forEach((el) => {
     observer.observe(el);
   });
 });

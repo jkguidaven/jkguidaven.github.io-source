@@ -2,7 +2,17 @@
   "timeline": [
     {
       "icon": "briefcase",
-      "time": "OCT 2019 - PRESENT",
+      "time": "AUG 2022 - PRESENT",
+      "title": "Automattic Inc.",
+      "subtitle": "Software Engineer",
+      "items": [
+        "Building and maintaining WordPress-powered products using React and PHP",
+        "Contributing to the WordPress ecosystem at scale"
+      ]
+    },
+    {
+      "icon": "briefcase",
+      "time": "OCT 2019 - AUG 2022",
       "title": "Newlogic Pte Ltd, Singapore",
       "subtitle": "Software Engineer",
       "items": [

@@ -1,24 +1,23 @@
 @use "includes/base";
 
 .coming-soon-page {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 300px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 60px 24px;
-  background: var(--color-warm-bg);
 
   .coming-soon-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--text-dark);
     margin-bottom: 0.5rem;
   }
 
   .coming-soon-text {
     font-size: 1rem;
-    color: var(--color-text-muted);
+    color: var(--text-body);
   }
 }

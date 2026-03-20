@@ -4,29 +4,50 @@
 @use "bulma/css/bulma.css";
 
 :root {
-  // Warm amber accent
-  --bulma-primary-h: 24;
-  --bulma-primary-s: 90%;
-  --bulma-primary-l: 50%;
+  // Force light mode — override Bulma 1.0 dark mode
+  --bulma-scheme-h: 221;
+  --bulma-scheme-s: 14%;
+  --bulma-scheme-main-l: 100%;
+  --bulma-scheme-main-bis-l: 98%;
+  --bulma-scheme-main-ter-l: 96%;
+  --bulma-scheme-invert-l: 4%;
+  --bulma-scheme-invert-ter-l: 14%;
+  --bulma-text-l: 29%;
+  --bulma-text-strong-l: 21%;
+  --bulma-scheme-brightness: "light";
 
-  // Typography
+  // Warm orange accent
+  --bulma-primary-h: 22;
+  --bulma-primary-s: 85%;
+  --bulma-primary-l: 48%;
+
   --bulma-family-primary: "DM Sans", sans-serif;
 
-  // Box
-  --bulma-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --bulma-box-radius: 12px;
-  --bulma-box-padding: 2rem;
+  --bulma-box-shadow: none;
+  --bulma-box-radius: 15px;
+  --bulma-box-padding: 60px;
 
-  // Warm palette
-  --color-text: #2d2a26;
-  --color-text-muted: #7a7265;
-  --color-accent: #e07a2f;
-  --color-accent-hover: #c86820;
-  --color-accent-soft: #fdf3eb;
-  --color-accent-glow: rgba(224, 122, 47, 0.12);
-  --color-border: #ebe6df;
-  --color-surface: #faf8f5;
-  --color-warm-bg: #fefcfa;
+  --accent: #e45c0e;
+  --accent-dark: #c44e0a;
+  --accent-bg: #ee7a11;
+  --text-dark: #363636;
+  --text-body: #4a4a4a;
+  --text-light: #888;
+  --bg-light: #f5f5f5;
+  --bg-white: #fff;
+  --border-light: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bulma-scheme-main-l: 100%;
+    --bulma-scheme-main-bis-l: 98%;
+    --bulma-scheme-main-ter-l: 96%;
+    --bulma-scheme-invert-l: 4%;
+    --bulma-scheme-invert-ter-l: 14%;
+    --bulma-text-l: 29%;
+    --bulma-text-strong-l: 21%;
+  }
 }
 
 html,
@@ -34,149 +55,132 @@ body {
   padding: 0;
   margin: 0;
   height: 100% !important;
-  color: var(--color-text);
-  background: var(--color-warm-bg);
 }
 
-// Navbar
+// ---------- Navbar ----------
 .navbar {
   width: 100%;
-  padding: 16px 24px;
-  background: transparent;
+  padding: 24px;
+  background-color: white !important;
 
-  .navbar-brand-text {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--color-accent);
-    letter-spacing: -0.03em;
-    padding: 0.5rem 0.75rem;
-    text-decoration: none;
-  }
+  .navbar-brand {
+    font-size: 1.5em;
+    transition: ease-out 0.2s;
 
-  .navbar-brand-text:hover {
-    opacity: 0.8;
+    a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
   }
 
   .navbar-item {
-    .nav-link {
-      display: inline-block;
-      padding: 8px 16px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--color-text-muted);
-      background: none;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: color 0.2s, background-color 0.2s;
+    .button.is-light {
+      background-color: transparent;
+      padding: 10px;
+      font-size: 1.1rem;
     }
 
-    .nav-link:hover,
-    .nav-link:focus {
-      color: var(--color-text);
-      background-color: var(--color-accent-soft);
-      outline: none;
-      box-shadow: none;
+    .button.active {
+      font-weight: bold;
     }
 
-    .nav-link.active {
-      color: var(--color-accent);
-      font-weight: 600;
+    .button.is-light:hover,
+    .button.is-light:focus {
+      color: var(--accent);
     }
   }
 }
 
 .navbar-burger {
-  border-radius: 8px;
-  -webkit-tap-highlight-color: transparent;
+  border-radius: 10px;
+  -webkit-tap-highlight-color: rgba(255, 224, 206, 0.05);
   user-select: none;
 
   span {
-    height: 2px;
-    color: var(--color-text);
+    height: 3px;
   }
 }
 
 .navbar-burger.is-active {
   span {
-    background-color: var(--color-accent);
+    background-color: var(--accent);
   }
+}
+
+.navbar-burger:active {
+  background-color: #ffe6d7;
 }
 
 @media screen and (max-width: 1023px) {
   .navbar-menu {
-    margin-top: 8px;
+    margin-top: 10px;
     box-shadow: none;
 
-    .nav-links {
+    .buttons {
       flex-direction: column;
-      .nav-link {
+      .button {
         display: block;
-        -webkit-tap-highlight-color: transparent;
+        -webkit-tap-highlight-color: rgba(255, 224, 206, 0.05);
         user-select: none;
       }
     }
   }
 }
 
-// Footer
-.site-footer {
-  padding: 3rem 1.5rem;
-  border-top: 1px solid var(--color-border);
-  background: var(--color-warm-bg);
+// ---------- Footer ----------
+.footer {
+  background-color: hsl(221, 14%, 14%) !important;
+  border-top: none;
 
-  .footer-links {
-    list-style: none;
+  .contact-links {
+    margin: 20px;
     padding: 0;
-    margin: 0 0 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+    list-style: none;
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      color: var(--color-text-muted);
-      border: 1px solid var(--color-border);
-      text-decoration: none;
-      transition: all 0.2s;
-      margin: 0;
-    }
-
-    a:hover {
-      color: var(--color-accent);
-      border-color: var(--color-accent);
-      background: var(--color-accent-soft);
+    li {
+      display: inline-block !important;
     }
   }
 
-  .footer-credit {
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
+  .button.contact {
+    transition: ease-out 0.2s;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 0 5px 20px;
+    user-select: none;
+  }
+
+  .button.contact:hover,
+  .button.contact:focus {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    outline: none;
+    box-shadow: none;
   }
 }
 
 strong,
 a {
-  margin: 0;
+  margin: 0 5px;
 }
 
-a {
-  color: var(--color-accent);
-}
-
-// Subtle fade-in animation
-.fade-in {
+// ---------- Scroll animation ----------
+.fade-up {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.fade-in.visible {
+.fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
