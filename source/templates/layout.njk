@@ -20,35 +20,26 @@
     <link rel="manifest" href="/assets/manifest.json">
 
     <meta name="google-site-verification" content="AsC9RBLM1dftaRXrUug8RcZxH-6xijC0QEsDME3XxGg" />
-    <meta name="title" content="James Kenneth A. Guidaven's personal github page">
-    <meta name="Description" content="Information about James Kenneth Guidaven Full-stack Developer professional background">
+    <meta name="title" content="James Kenneth Guidaven - Software Engineer">
+    <meta name="Description" content="Software Engineer with 15+ years of experience building web applications and distributed systems.">
     <meta name="author" content="James Kenneth Guidaven">
 
-    <meta property="og:title" content="James Kenneth Guidaven's personal github page" />
-    <meta property="og:description" content="Information about James Kenneth Guidaven Full-stack Developer professional background" />
+    <meta property="og:title" content="James Kenneth Guidaven - Software Engineer" />
+    <meta property="og:description" content="Software Engineer with 15+ years of experience building web applications and distributed systems." />
     <meta property="og:image" content="https://jkguidaven.github.io/assets/images/hero.jpg" />
     <meta property="og:url" content="https://jkguidaven.github.io" />
 
-
-    <title>James Kenneth A. Guidaven {{ ("'s " + page) if page }}</title>
+    <title>James Kenneth Guidaven{{ (" - " + page) if page and page !== 'home' }}</title>
 
     <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://firebaseremoteconfig.googleapis.com" />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;600;700;900&display=swap"
-      rel="preload" onload="this.rel='stylesheet'" as="style"
-    >
 
     <script async src="https://use.fontawesome.com/29e1103c35.js"></script>
     <script defer src="/js/lazysizes.min.js"></script>
     <script defer src="/js/ls.unveilhooks.min.js"></script>
     <script defer src="/js/main.js"></script>
 
-    <script>
-      !function(n,e){var t,o,i,c=[],f={passive:!0,capture:!0},r=new Date,a="pointerup",u="pointercancel";function p(n,c){t||(t=c,o=n,i=new Date,w(e),s())}function s(){o>=0&&o<i-r&&(c.forEach(function(n){n(o,t)}),c=[])}function l(t){if(t.cancelable){var o=(t.timeStamp>1e12?new Date:performance.now())-t.timeStamp;"pointerdown"==t.type?function(t,o){function i(){p(t,o),r()}function c(){r()}function r(){e(a,i,f),e(u,c,f)}n(a,i,f),n(u,c,f)}(o,t):p(o,t)}}function w(n){["click","mousedown","keydown","touchstart","pointerdown"].forEach(function(e){n(e,l,f)})}w(n),self.perfMetrics=self.perfMetrics||{},self.perfMetrics.onFirstInputDelay=function(n){c.push(n),s()}}(addEventListener,removeEventListener);
-    </script>
     {% block head %} {% endblock %}
   </head>
   <body>

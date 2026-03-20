@@ -1,15 +1,15 @@
-{% macro menuItem(current, page, link, label) %}
+{% macro navLink(current, page, link, label) %}
 <a
-  class="button is-light {{ 'active' if current === page }}"
+  class="nav-link {{ 'active' if current === page }}"
   href="{{ link }}"
 >
   {{ label }}
 </a>
 {% endmacro %}
 
-
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
+    <a class="navbar-brand-text" href="/">JK</a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navigation-menu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -20,11 +20,10 @@
   <div id="navigation-menu" class="navbar-menu">
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          {{ menuItem(page, 'home', '/', 'Home') }}
-          {{ menuItem(page, 'about', '/about', 'About') }}
-          {{ menuItem(page, 'work', '/works', 'Works') }}
-          {{ menuItem(page, 'blogs', '/blogs', 'Blogs') }}
+        <div class="nav-links">
+          {{ navLink(page, 'home', '/', 'Home') }}
+          {{ navLink(page, 'about', '/about', 'About') }}
+          {{ navLink(page, 'work', '/works', 'Works') }}
         </div>
       </div>
     </div>

@@ -3,53 +3,43 @@
     {
       "name": "Frontend",
       "icon": "frontend.svg",
-      "description": "I mostly build Front-end applications using modern UI frameworks which help speed up development while maintaining high quality codes.",
-      "languages": ["Javascript/Typescript", "HTML5/CSS3"],
+      "description": "Building responsive, performant user interfaces with modern frameworks and tooling.",
+      "languages": ["JavaScript/TypeScript", "HTML5/CSS3"],
       "tools": [
-        "Angular/Vue/React",
-        "Ionic Framework/React Native",
-        "Vuetify/Bulma/Bootstrap",
-        "SCSS/Tailwind CSS/BEM convention",
-        "Firebase/Amplify",
-        "npm/yarn",
-        "indexDB",
-        "storybook",
-        "Redux/NGRX/Vuex/XState",
-        "gulp/webpack"
+        "Angular / Vue / React",
+        "Ionic / React Native",
+        "Tailwind CSS / SCSS",
+        "State Management (Redux, NGRX, Vuex)",
+        "Storybook",
+        "Webpack / Gulp"
       ]
     },
     {
-      "name": "Software Engineering",
+      "name": "Engineering",
       "icon": "sweng.svg",
-      "description": "It is important for me to understand software engineering fundamentals when building fast and high quality applications.",
+      "description": "Strong foundation in software design principles and system architecture.",
       "knowledge": [
-        "Algorithm & Datastructure",
-        "Design Patterns",
-        "SOLID Principle",
-        "Clean code",
-        "REST API",
-        "Microservice Architecture",
-        "Distributed Systems",
-        "Web security",
-        "oAuth/openID",
-        "UI/UX Design",
-        "Web Accessability"
+        "Data Structures & Algorithms",
+        "Design Patterns & SOLID",
+        "Clean Architecture",
+        "REST & GraphQL APIs",
+        "Microservices & Distributed Systems",
+        "OAuth / OpenID Connect",
+        "Web Security & Accessibility"
       ]
     },
     {
       "name": "Backend",
       "icon": "backend.svg",
-      "description": "I mainly use Node-based framework when building web services however I also use PHP, Go and Java frameworks when building for specific requirements.",
-      "languages": ["Javascript", "Java", "PHP", "Go"],
+      "description": "Designing and building scalable services and cloud infrastructure.",
+      "languages": ["JavaScript", "Java", "PHP", "Go"],
       "tools": [
-        "Node/Express",
-        "Spring/Springboot",
-        "Laravel/lumen",
-        "AWS/GCP",
+        "Node.js / Express",
+        "Spring Boot",
+        "AWS / GCP",
+        "Docker / Kubernetes",
         "WebSocket",
-        "Swagger/OpenAPI",
-        "Docker/Kubernetes",
-        "MySQL/Postgre/MongoDB"
+        "MySQL / PostgreSQL / MongoDB"
       ]
     }
   ]

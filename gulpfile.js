@@ -93,7 +93,7 @@ gulp.task("build:css", function () {
             uncss({
               htmlroot: outputFolder,
               html: [`${outputFolder}/${htmlFile}`],
-              ignore: [/^(\.navbar-burger).*/, /^(\.navbar-menu).*/],
+              ignore: [/^(\.navbar-burger).*/, /^(\.navbar-menu).*/, /^\.fade-in/, /^\.visible/, /^\.repo-/],
               timeout: 100,
             }),
             autoprefixer,

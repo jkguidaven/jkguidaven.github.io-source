@@ -2,8 +2,7 @@
   "companies": [
     {
       "name": "Newlogic Pte Ltd",
-      "description": "Newlogic is a software consultancy company headquartered in Singapore with offices throughout Southeast Asia.",
-      "role-info": "Currently working as a full-time <b>Software Developer</b>",
+      "role": "Software Engineer",
       "url": "https://newlogic.io",
       "brand": {
         "image": "newlogic.png",
@@ -14,8 +13,7 @@
     },
     {
       "name": "Zenventory",
-      "description": "Inventory Management Software for eCommerce Retailers, 3PLs, and Small Businesses.",
-      "role-info": "Worked as an offshore <b>Full Stack Software Engineer</b>",
+      "role": "Full Stack Engineer",
       "url": "https://www.zenventory.com",
       "brand": {
         "image": "zenventory.svg",
@@ -25,9 +23,8 @@
       }
     },
     {
-      "name": "Lexmark International, Inc.",
-      "description": "Provider of printing and imaging products, software, solutions and services that help customers save time and money.",
-      "role-info": "Worked as a full-time <b>Software Engineer</b>",
+      "name": "Lexmark International",
+      "role": "Software Engineer",
       "url": "https://www.lexmark.com",
       "brand": {
         "image": "lexmark.svg",
@@ -38,9 +35,8 @@
     },
     {
       "name": "Hakoot",
+      "role": "Software Engineer",
       "url": "http://hakoot.ph",
-      "description": "Is a FREE app for easy garbage segregation and collection.",
-      "role-info": "Worked as a part-time <b>Software Engineer</b>",
       "brand": {
         "image": "hakoot.svg",
         "color": "#66ae5a",
@@ -50,8 +46,7 @@
     },
     {
       "name": "Serious Dev Technology",
-      "description": "A startup company that provides cost effective ERP solutions to small and medium size companies.",
-      "role-info": "Co-Founded and worked as a full-time <b>Lead Software Engineer</b>",
+      "role": "Lead Engineer & Co-Founder",
       "url": "https://seriousdevtech.com",
       "brand": {
         "image": "seriousdev.png",
@@ -62,8 +57,7 @@
     },
     {
       "name": "NCR Corporation",
-      "description": "Is the world's leading enterprise technology provider of software, hardware and services for banks, retailers, restaurants, small business and telecom.",
-      "role-info": "Worked as a full-time <b>Software Engineer</b>",
+      "role": "Software Engineer",
       "url": "https://www.ncr.com",
       "brand": {
         "image": "ncr.png",

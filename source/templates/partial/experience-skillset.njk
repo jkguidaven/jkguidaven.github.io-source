@@ -1,60 +1,43 @@
-<div class="container skillset-content">
-  <div class="columns is-centered">
-    <div class="column has-text-centered">
-      <div class="box columns">
-        {% for role in roles -%}
-          <div class="column">
-            <div
-              class="role-icon"
-              style="background-image: url('/assets/images/{{ role.icon }}')"
-              aria-hidden="true"
-            ></div>
+<div class="skills-section">
+  <div class="section-eyebrow">What I Do</div>
+  <div class="section-title">Skills & Expertise</div>
 
-            <strong class="role-label title is-5 has-text-weight-bold">  
-              {{ role.name }}
-            </strong>
+  <div class="skills-grid">
+    {% for role in roles -%}
+      <div class="skill-card">
+        <div
+          class="skill-icon"
+          style="background-image: url('/assets/images/{{ role.icon }}')"
+          aria-hidden="true"
+        ></div>
 
-            <div class="role-content">
-              <p>
-                {{ role.description }}
-              </p>
+        <div class="skill-title">{{ role.name }}</div>
 
-              {% if role.languages %}
-                <strong class="has-text-weight-semibold has-text-primary margin-10">
-                  Languages I speak:
-                </strong>
+        <p class="skill-description">{{ role.description }}</p>
 
-                <p>
-                  {{ role.languages | join(", ") }}
-                </p>
-              {% endif %}
+        {% if role.languages %}
+          <span class="skill-label">Languages</span>
+          <div class="skill-tags">{{ role.languages | join(" / ") }}</div>
+        {% endif %}
 
-              {% if role.tools %}
-                <strong class="has-text-weight-semibold has-text-primary margin-10">
-                  Tools I use:
-                </strong>
-                
-                <ul>
-                  {% for tool in role.tools -%}
-                    <li>{{ tool }}</li>
-                  {%- endfor %}
-                </ul>
-              {% endif %}
+        {% if role.tools %}
+          <span class="skill-label">Tools & Frameworks</span>
+          <ul class="skill-list">
+            {% for tool in role.tools -%}
+              <li>{{ tool }}</li>
+            {%- endfor %}
+          </ul>
+        {% endif %}
 
-              {% if role.knowledge %}
-                <strong class="has-text-weight-semibold has-text-primary margin-10">
-                  Knowledges and Principles I follow:
-                </strong>
-
-                <ul>
-                  {% for knowledge in role.knowledge -%}
-                  <li>{{ knowledge }}</li>
-                  {%- endfor %}
-                </ul>
-              {% endif %}
-            </div>
-          </div>
-        {%- endfor %}
-    </div>
+        {% if role.knowledge %}
+          <span class="skill-label">Core Principles</span>
+          <ul class="skill-list">
+            {% for item in role.knowledge -%}
+              <li>{{ item }}</li>
+            {%- endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {%- endfor %}
   </div>
 </div>

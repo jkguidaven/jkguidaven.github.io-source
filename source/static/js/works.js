@@ -23,13 +23,10 @@ function gitHubRepositoryFetch() {
       .get(GITHUB_REPOSITORY_ENDPOINT)
       .then(({ data }) => {
         const forResolve = data
-          // we filter repository that is not jkguidaven.github.io
           .filter((repo) => repo.name !== "jkguidaven.github.io")
-          // we map it to a promise that resolves complete details
           .map((repository) => getMoreDetails(repository));
 
         Promise.all(forResolve).then((repositories) => {
-          // finally resolve and persist the repositories
           persistData(repositories);
           resolve(repositories);
         });
@@ -67,26 +64,23 @@ document.addEventListener("DOMContentLoaded", () => {
   gitHubRepositoryFetch().then((repositories) => {
     container.innerHTML = "";
     repositories.forEach(({ name, description, link, languages }) => {
-      const infoBox = document.createElement("div");
-      infoBox.classList.add("column");
-      infoBox.classList.add("is-4");
+      const card = document.createElement("div");
+      card.classList.add("repo-card");
 
       let languagesHtml = "";
       languages.forEach((language) => {
         languagesHtml += `<span>${language}</span>`;
       });
 
-      infoBox.innerHTML = `
-        <div class='has-background-white-ter'>
-          <a href='${link}' target='_blank' rel='noreferrer' role='link'>
-            <h1>${name}</h1>
-          </a>
-          <p>${description}</p>
-          ${languagesHtml}
-        </div>
+      card.innerHTML = `
+        <a href='${link}' target='_blank' rel='noreferrer'>
+          <h1>${name}</h1>
+        </a>
+        <p>${description || "No description"}</p>
+        <div class='repo-languages'>${languagesHtml}</div>
       `;
 
-      container.append(infoBox);
+      container.append(card);
     });
   });
 });

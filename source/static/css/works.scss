@@ -1,60 +1,132 @@
 @use "includes/base";
-@use "includes/under-construction";
 
-.section {
-  padding: 60px 24px;
+.works-header {
+  padding: 80px 24px 40px;
+  background: var(--color-warm-bg);
+  text-align: center;
 
-  strong.header {
-    display: inline-block;
-    font-size: 2.3rem;
-    font-weight: 900;
-    margin: 20px 0 10px;
+  .section-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
   }
 
-  .subtitle {
-    display: block;
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
   }
 
-  p {
+  .section-subtitle {
     font-size: 1rem;
+    color: var(--color-text-muted);
   }
 }
 
-.is-hidden {
-  display: none;
-}
+.repos-section {
+  padding: 0 24px 80px;
+  background: var(--color-warm-bg);
 
-/* uncss:ignore start */
-#github-repositories-container {
-  .column > div {
-    margin: 10px;
-    padding: 25px;
-    height: 100%;
-    border-radius: 25px;
+  .repos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
 
-    > a h1 {
-      color: black;
-      font-size: 1.5rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+  .repo-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 32px var(--color-accent-glow);
+      transform: translateY(-2px);
     }
 
-    > span {
-      font-size: 0.9rem;
-      font-weight: 200;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-right: 10px;
-      color: var(--bulma-primary);
+    a {
+      text-decoration: none;
+
+      h1 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
 
-    > p {
-      height: 100px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-bottom: 30px;
+    a:hover h1 {
+      color: var(--color-accent);
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .repo-languages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      span {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--color-accent);
+        background: var(--color-accent-soft);
+        padding: 3px 10px;
+        border-radius: 100px;
+      }
     }
   }
+
+  .loading-text {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    padding: 2rem;
+  }
 }
-/* uncss:ignore end */
+
+@media only screen and (max-width: 768px) {
+  .repos-section .repos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Coming soon for projects
+.coming-soon {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--color-surface);
+
+  .coming-soon-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .coming-soon-text {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+}

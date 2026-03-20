@@ -1,73 +1,173 @@
 @use "includes/base";
 
-.about-image-container {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  float: right;
-  padding: 24px 60px;
+// About intro
+.about-intro {
+  padding: 80px 24px;
+  background: var(--color-warm-bg);
 
-  img {
-    border-radius: 15px;
-    width: 100%;
-  }
-}
-
-.section {
-  padding: 60px 24px;
-
-  strong.header {
-    display: inline-block;
-    font-size: 2.3rem;
-    font-weight: 900;
-    margin: 20px 0;
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: center;
   }
 
-  p {
-    font-size: 1.1rem;
+  .about-content {
+    .section-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+    }
 
-    strong {
-      display: inline-block;
-      margin: 0 5px;
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: var(--color-text);
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      margin-bottom: 1rem;
+    }
+  }
+
+  .about-photo {
+    img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     }
   }
 }
 
-.timeline {
-  padding: 10px 10px 10px 30px;
-  .line {
-    border-left: 3px dotted rgb(212, 212, 212);
-    padding-left: 40px;
+@media only screen and (max-width: 768px) {
+  .about-intro .about-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .record {
-      padding: 10px;
+  .about-intro .about-photo {
+    order: -1;
+    text-align: center;
 
-      .marker {
-        width: 100px;
-        text-align: right;
-        display: block;
-        position: absolute;
-        margin-left: -138px;
+    img {
+      max-width: 240px;
+    }
+  }
+}
 
-        .fa {
-          display: inline-block;
-          font-size: 24px;
-          margin-top: 5px;
-        }
-      }
+// Timeline
+.timeline-section {
+  padding: 80px 24px;
+  background: var(--color-surface);
+
+  .section-eyebrow {
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  .timeline {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--color-border);
+  }
+
+  .timeline-entry {
+    position: relative;
+    padding: 0 0 2.5rem 1.5rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      border: 3px solid var(--color-surface);
+      transform: translateX(-5px);
+    }
+
+    &.education::before {
+      background: var(--color-text-muted);
+    }
+
+    .entry-time {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-accent);
+      background: var(--color-accent-soft);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 0.5rem;
+    }
+
+    .entry-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.15rem;
+    }
+
+    .entry-subtitle {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .entry-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
       li {
-        font-size: 1.1rem;
-        margin: 24px 0;
-      }
-
-      .title,
-      .subtitle {
-        font-size: 1.5rem;
-      }
-
-      .time {
         font-size: 0.9rem;
+        color: var(--color-text-muted);
+        line-height: 1.7;
+        padding: 3px 0;
+        padding-left: 1rem;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 11px;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: var(--color-border);
+        }
       }
     }
   }

@@ -1,42 +1,18 @@
-<div class="container companies-info-container">
-    <strong class="subtitle is-2 has-text-centered">
-      Companies or Products that I have worked before
-    </strong>
-    <hr/>
+<div class="experience-section">
+  <div class="section-eyebrow">Experience</div>
+  <div class="section-title">Companies I've Worked With</div>
 
-    {% for group in range(0, companies.length / 3) -%}
-      <div class="columns is-centered" style="margin-bottom: 25px">
-        {% for company in companies.slice(group * 3,(group * 3) + 3) -%}
-          <a class="box column is-one-third margin-10 company-box lazyload"
-            href="{{ company.url }}" rel="noreferrer" target="_blank"
-            style="
-              background-color: {{ company.brand.color }};
-              background-size: {{ company.brand.size }};
-            "
-            data-bg="/assets/images/companies/{{ company.brand.image }}"
-            aria-label="{{ company.name }} link button"
-            role="link"
-          >
-            <div class="content"
-              style="
-                background-color: {{ company.brand.color }};
-                color: {{ company.brand['font-color'] }}
-              ">
-              <b>{{ company.name }}</b>
-              
-              <br/>
-              <br/>
-              
-              <p>
-                {{ company.description }}
-              </p>
-
-              <br/>
-
-              {{ company["role-info"] | safe }}
-            </div>
-          </a>
-        {%- endfor %}
-      </div>
+  <div class="company-grid">
+    {% for company in companies -%}
+      <a class="company-card" href="{{ company.url }}" rel="noreferrer" target="_blank">
+        <div
+          class="company-logo lazyload"
+          data-bg="/assets/images/companies/{{ company.brand.image }}"
+          style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
+        ></div>
+        <div class="company-name">{{ company.name }}</div>
+        <div class="company-role">{{ company.role }}</div>
+      </a>
     {%- endfor %}
   </div>
+</div>
