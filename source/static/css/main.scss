@@ -1,4 +1,4 @@
-@import "includes/base.scss";
+@use "includes/base";
 
 .avatar {
   display: block;
@@ -134,7 +134,7 @@ section.about {
 
   .learn-more-button {
     display: inline-block;
-    color: $black-ter;
+    color: var(--bulma-black-ter);
     border-radius: 50px;
     padding: 15px 20px;
     transition: ease-out 0.1s;
@@ -158,8 +158,8 @@ section.about {
 
 @media only screen and (min-width: 770px) {
   .skillset-content .column:nth-child(2) {
-    border-left: 1px solid $white-ter;
-    border-right: 1px solid $white-ter;
+    border-left: 1px solid var(--bulma-white-ter);
+    border-right: 1px solid var(--bulma-white-ter);
   }
 }
 

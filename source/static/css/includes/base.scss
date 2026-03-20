@@ -1,29 +1,22 @@
 @charset "utf-8";
 
-// Customization
+@use "./font";
+@use "bulma/css/bulma.css";
 
-// You can easily customize Bulma with your own variables.
-// Just uncomment the following block to see the result.
+:root {
+  // Primary color: #a34824 → HSL(17, 64%, 39%)
+  --bulma-primary-h: 17;
+  --bulma-primary-s: 64%;
+  --bulma-primary-l: 39%;
 
-// 1. Import the initial variables
-@import "node_modules/bulma/sass/utilities/initial-variables.sass";
+  // Typography
+  --bulma-family-primary: "DM Sans", sans-serif;
 
-@import "./font.scss";
-
-$family-sans-serif: "DM Sans", sans-serif;
-
-// 3. Set the derived variables
-// Use the new pink as the primary color
-$primary: #a34824;
-$primary-lighter: #ce6a0d;
-
-$box-shadow: none;
-$box-radius: 15px;
-$box-padding: 60px;
-
-// 4. Import the rest of Bulma
-
-@import "node_modules/bulma/bulma";
+  // Box
+  --bulma-box-shadow: none;
+  --bulma-box-radius: 15px;
+  --bulma-box-padding: 60px;
+}
 
 html,
 body {
@@ -47,7 +40,7 @@ body {
   border-radius: 50%;
   margin: 0 5px 20px;
 
-  -webkit-tap-highlight-color: rgba($color: #fff, $alpha: 0);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -100,7 +93,7 @@ body {
 
 .navbar-burger {
   border-radius: 10px;
-  -webkit-tap-highlight-color: rgba($color: #ffe0ce, $alpha: 0.05);
+  -webkit-tap-highlight-color: rgba(255, 224, 206, 0.05);
   user-select: none;
 
   span {
@@ -128,7 +121,7 @@ body {
       .button {
         display: block;
 
-        -webkit-tap-highlight-color: rgba($color: #ffe0ce, $alpha: 0.05);
+        -webkit-tap-highlight-color: rgba(255, 224, 206, 0.05);
         user-select: none;
       }
     }

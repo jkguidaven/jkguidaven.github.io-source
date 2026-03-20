@@ -1,5 +1,5 @@
-@import "includes/base.scss";
-@import "includes/under-construction.scss";
+@use "includes/base";
+@use "includes/under-construction";
 
 .section {
   padding: 60px 24px;
@@ -46,7 +46,7 @@
       text-transform: uppercase;
       display: inline-block;
       margin-right: 10px;
-      color: $primary;
+      color: var(--bulma-primary);
     }
 
     > p {
