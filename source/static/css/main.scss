@@ -385,6 +385,19 @@
 
     .current-company-row .company-featured {
       max-width: 100%;
+      min-height: 120px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .companies-section {
+    .company-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .company-box {
+      min-height: 100px;
     }
   }
 }
@@ -393,7 +406,7 @@
 .cta-section {
   padding: 60px 24px;
   text-align: center;
-  background: var(--bg-light);
+  background: var(--bg-white);
 
   .cta-text {
     font-size: 1.1rem;
