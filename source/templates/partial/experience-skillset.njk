@@ -1,43 +1,81 @@
 <div class="skillset-inner">
   <div class="section-eyebrow fade-up">What I Do</div>
   <div class="section-title fade-up">Skills & Expertise</div>
+  <p class="section-subtitle fade-up">
+    The technologies and principles I work with every day
+  </p>
 
-  <div class="skillset-content stagger">
-    {% for role in roles -%}
-      <div class="skill-card fade-up">
-        <div
-          class="role-icon icon-bounce"
-          style="background-image: url('/assets/images/{{ role.icon }}')"
-          aria-hidden="true"
-        ></div>
-
-        <strong class="role-label">{{ role.name }}</strong>
-
-        <p class="role-description">{{ role.description }}</p>
-
-        {% if role.languages %}
-          <span class="skill-label">Languages</span>
-          <div class="skill-tags">{{ role.languages | join(" / ") }}</div>
-        {% endif %}
-
-        {% if role.tools %}
-          <span class="skill-label">Tools & Frameworks</span>
-          <ul class="skill-list">
-            {% for tool in role.tools -%}
-              <li>{{ tool }}</li>
-            {%- endfor %}
-          </ul>
-        {% endif %}
-
-        {% if role.knowledge %}
-          <span class="skill-label">Core Principles</span>
-          <ul class="skill-list">
-            {% for item in role.knowledge -%}
-              <li>{{ item }}</li>
-            {%- endfor %}
-          </ul>
-        {% endif %}
+  <div class="terminal-window blur-in">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
       </div>
-    {%- endfor %}
+      <span class="terminal-title">skills.sh</span>
+    </div>
+
+    <div class="terminal-body">
+      {% for role in roles -%}
+        <div class="terminal-block" data-index="{{ loop.index0 }}">
+          <div class="terminal-prompt">
+            <span class="prompt-symbol">$</span>
+            <span class="prompt-cmd">cat</span>
+            <span class="prompt-arg">{{ role.name | lower | replace(" ", "-") }}.md</span>
+          </div>
+
+          <div class="terminal-output">
+            <div class="output-header">
+              <span class="output-hash">#</span> {{ role.name }}
+              {% if loop.first %}<span class="output-badge">primary</span>{% endif %}
+            </div>
+
+            <p class="output-desc">> {{ role.description }}</p>
+
+            {% if role.languages %}
+              <div class="output-section">
+                <span class="output-key">languages:</span>
+                <span class="output-values">
+                  {% for lang in role.languages -%}
+                    <span class="output-tag">{{ lang }}</span>
+                  {%- endfor %}
+                </span>
+              </div>
+            {% endif %}
+
+            {% if role.tools %}
+              <div class="output-section">
+                <span class="output-key">tools:</span>
+                <span class="output-values">
+                  {% for tool in role.tools -%}
+                    <span class="output-tag">{{ tool }}</span>
+                  {%- endfor %}
+                </span>
+              </div>
+            {% endif %}
+
+            {% if role.knowledge %}
+              <div class="output-section">
+                <span class="output-key">principles:</span>
+                <span class="output-values">
+                  {% for item in role.knowledge -%}
+                    <span class="output-tag">{{ item }}</span>
+                  {%- endfor %}
+                </span>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if not loop.last %}
+          <div class="terminal-divider"></div>
+        {% endif %}
+      {%- endfor %}
+
+      <div class="terminal-prompt terminal-cursor">
+        <span class="prompt-symbol">$</span>
+        <span class="cursor-blink">_</span>
+      </div>
+    </div>
   </div>
 </div>

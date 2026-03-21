@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   heroCascadeEls.forEach((el, i) => {
     setTimeout(() => {
       el.classList.add("animate");
-    }, 200 + i * 180);
+    }, 300 + i * 200);
   });
 
-  // ---------- Scroll reveal observer (reverse only on scroll up) ----------
+  // ---------- Scroll direction tracking ----------
   let lastScrollY = window.scrollY;
   let scrollDirection = "down";
 
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollY = window.scrollY;
   });
 
+  // ---------- Scroll reveal observer ----------
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -40,14 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.1 }
   );
 
-  // Observe all animatable elements
   document
-    .querySelectorAll(".fade-up, .slide-left, .pop-in, .icon-bounce")
+    .querySelectorAll(
+      ".fade-up, .slide-left, .pop-in, .icon-bounce, .blur-in, .tilt-in, .reveal-wipe"
+    )
     .forEach((el) => {
       revealObserver.observe(el);
     });
 
-  // ---------- Sticky navbar: glassmorphism + hide/show on scroll ----------
+  // ---------- Sticky navbar ----------
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     window.addEventListener("scroll", () => {
@@ -80,5 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-
 });

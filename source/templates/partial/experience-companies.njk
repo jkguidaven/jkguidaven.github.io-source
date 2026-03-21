@@ -1,32 +1,44 @@
 <div class="companies-section">
   <div class="section-eyebrow fade-up">Experience</div>
   <div class="section-title fade-up">Companies I've Worked With</div>
+  <p class="section-subtitle fade-up">
+    From startups to enterprise — building software across industries
+  </p>
 
-  {% for company in companies -%}
-    {% if loop.first %}
-      <div class="current-company-row">
-        <a class="company-box company-featured lazyload pop-in"
-          href="{{ company.url }}" rel="noreferrer" target="_blank"
-          style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
-          data-bg="/assets/images/companies/{{ company.brand.image }}"
-          aria-label="{{ company.name }}"
-        >
-          <span class="current-badge">Current</span>
-        </a>
-      </div>
-    {% endif %}
-  {%- endfor %}
+  <div class="orbit-container fade-up">
+    <div class="orbit-ring orbit-ring-outer"></div>
+    <div class="orbit-ring orbit-ring-inner"></div>
 
-  <div class="company-grid stagger">
+    <div class="orbit-center">
+      <img src="/assets/images/hero.jpg" alt="James Kenneth" />
+    </div>
+
     {% for company in companies -%}
-      {% if not loop.first %}
-        <a class="company-box lazyload pop-in"
-          href="{{ company.url }}" rel="noreferrer" target="_blank"
-          style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
-          data-bg="/assets/images/companies/{{ company.brand.image }}"
-          aria-label="{{ company.name }}"
-        ></a>
-      {% endif %}
+      <a class="orbit-item orbit-pos-{{ loop.index }} lazyload"
+        href="{{ company.url }}" rel="noreferrer" target="_blank"
+        style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
+        data-bg="/assets/images/companies/{{ company.brand.image }}"
+        aria-label="{{ company.name }}"
+      >
+        {% if loop.first %}
+          <span class="orbit-badge">Current</span>
+        {% endif %}
+      </a>
+    {%- endfor %}
+  </div>
+
+  <div class="orbit-mobile-fallback">
+    {% for company in companies -%}
+      <a class="orbit-mobile-item lazyload"
+        href="{{ company.url }}" rel="noreferrer" target="_blank"
+        style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
+        data-bg="/assets/images/companies/{{ company.brand.image }}"
+        aria-label="{{ company.name }}"
+      >
+        {% if loop.first %}
+          <span class="orbit-badge">Current</span>
+        {% endif %}
+      </a>
     {%- endfor %}
   </div>
 </div>
