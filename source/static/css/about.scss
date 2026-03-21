@@ -87,12 +87,14 @@
 
         .marker {
           position: absolute;
-          left: -62px;
+          left: -51px;
           top: 4px;
+          width: 20px;
+          text-align: center;
           color: var(--accent);
 
           .fa {
-            font-size: 20px;
+            font-size: 18px;
           }
         }
 

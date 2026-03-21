@@ -187,9 +187,14 @@ body {
   border-radius: 10px;
   -webkit-tap-highlight-color: rgba(255, 224, 206, 0.05);
   user-select: none;
+  color: var(--text-dark);
+  --bulma-burger-h: 0;
+  --bulma-burger-s: 0%;
+  --bulma-burger-l: 21%;
 
   span {
     height: 3px;
+    background-color: var(--text-dark) !important;
   }
 }
 
