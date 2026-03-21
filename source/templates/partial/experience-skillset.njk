@@ -1,12 +1,12 @@
 <div class="skillset-inner">
-  <div class="section-eyebrow">What I Do</div>
-  <div class="section-title">Skills & Expertise</div>
+  <div class="section-eyebrow fade-up">What I Do</div>
+  <div class="section-title fade-up">Skills & Expertise</div>
 
-  <div class="skillset-content">
+  <div class="skillset-content stagger">
     {% for role in roles -%}
       <div class="skill-card fade-up">
         <div
-          class="role-icon"
+          class="role-icon icon-bounce"
           style="background-image: url('/assets/images/{{ role.icon }}')"
           aria-hidden="true"
         ></div>

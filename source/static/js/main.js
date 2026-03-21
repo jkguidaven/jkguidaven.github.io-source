@@ -1,36 +1,84 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Navbar burger toggle
-  const $navbarBurgers = Array.prototype.slice.call(
-    document.querySelectorAll(".navbar-burger"),
-    0
-  );
-
-  if ($navbarBurgers.length > 0) {
-    $navbarBurgers.forEach((el) => {
-      el.addEventListener("click", () => {
-        const target = el.dataset.target;
-        const $target = document.querySelector(`#${target}`);
-        el.classList.toggle("is-active");
-        el.setAttribute("aria-expanded", el.classList.contains("is-active"));
-        $target.classList.toggle("is-active");
-      });
+  // ---------- Navbar burger toggle ----------
+  const burgers = document.querySelectorAll(".navbar-burger");
+  burgers.forEach((el) => {
+    el.addEventListener("click", () => {
+      const target = document.querySelector(`#${el.dataset.target}`);
+      el.classList.toggle("is-active");
+      el.setAttribute("aria-expanded", el.classList.contains("is-active"));
+      target.classList.toggle("is-active");
     });
-  }
+  });
 
-  // Scroll fade-in animation
-  const observer = new IntersectionObserver(
+  // ---------- Hero cascade animation ----------
+  const heroCascadeEls = document.querySelectorAll(".hero-cascade");
+  heroCascadeEls.forEach((el, i) => {
+    setTimeout(() => {
+      el.classList.add("animate");
+    }, 200 + i * 180);
+  });
+
+  // ---------- Scroll reveal observer (reverse only on scroll up) ----------
+  let lastScrollY = window.scrollY;
+  let scrollDirection = "down";
+
+  window.addEventListener("scroll", () => {
+    scrollDirection = window.scrollY > lastScrollY ? "down" : "up";
+    lastScrollY = window.scrollY;
+  });
+
+  const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
+        } else if (scrollDirection === "up") {
+          entry.target.classList.remove("visible");
         }
       });
     },
     { threshold: 0.1 }
   );
 
-  document.querySelectorAll(".fade-up").forEach((el) => {
-    observer.observe(el);
-  });
+  // Observe all animatable elements
+  document
+    .querySelectorAll(".fade-up, .slide-left, .pop-in, .icon-bounce")
+    .forEach((el) => {
+      revealObserver.observe(el);
+    });
+
+  // ---------- Sticky navbar: glassmorphism + hide/show on scroll ----------
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+      if (scrollDirection === "down" && window.scrollY > 100) {
+        navbar.classList.add("navbar-hidden");
+      } else {
+        navbar.classList.remove("navbar-hidden");
+      }
+    });
+  }
+
+  // ---------- Scroll-to-top button ----------
+  const scrollBtn = document.getElementById("scroll-top");
+  if (scrollBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add("show");
+      } else {
+        scrollBtn.classList.remove("show");
+      }
+    });
+
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
 });

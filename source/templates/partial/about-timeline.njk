@@ -1,10 +1,10 @@
 <main class="timeline-section" id="experience">
-  <h2 class="section-title">Work Experience & Education</h2>
+  <h2 class="section-title fade-up">Work Experience & Education</h2>
 
   <div class="timeline">
     <div class="line">
       {% for record in timeline -%}
-        <div class="record fade-up">
+        <div class="record slide-left" style="transition-delay: {{ loop.index0 * 0.1 }}s">
           <span class="marker">
             <i class="fa fa-{{ record.icon }}"></i>
           </span>

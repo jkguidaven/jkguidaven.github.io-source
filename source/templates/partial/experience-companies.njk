@@ -1,11 +1,11 @@
 <div class="companies-section">
-  <div class="section-eyebrow">Experience</div>
-  <div class="section-title">Companies I've Worked With</div>
+  <div class="section-eyebrow fade-up">Experience</div>
+  <div class="section-title fade-up">Companies I've Worked With</div>
 
   {% for company in companies -%}
     {% if loop.first %}
       <div class="current-company-row">
-        <a class="company-box company-featured lazyload fade-up"
+        <a class="company-box company-featured lazyload pop-in"
           href="{{ company.url }}" rel="noreferrer" target="_blank"
           style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
           data-bg="/assets/images/companies/{{ company.brand.image }}"
@@ -17,10 +17,10 @@
     {% endif %}
   {%- endfor %}
 
-  <div class="company-grid">
+  <div class="company-grid stagger">
     {% for company in companies -%}
       {% if not loop.first %}
-        <a class="company-box lazyload fade-up"
+        <a class="company-box lazyload pop-in"
           href="{{ company.url }}" rel="noreferrer" target="_blank"
           style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
           data-bg="/assets/images/companies/{{ company.brand.image }}"

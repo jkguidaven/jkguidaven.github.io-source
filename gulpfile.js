@@ -93,7 +93,7 @@ gulp.task("build:css", function () {
             uncss({
               htmlroot: outputFolder,
               html: [`${outputFolder}/${htmlFile}`],
-              ignore: [/^(\.navbar-burger).*/, /^(\.navbar-menu).*/, /^\.fade-up/, /^\.visible/, /^\.repo-/, /^\.company-box/, /^\.company-featured/, /^\.current-badge/, /^\.current-company/],
+              ignore: [/^(\.navbar-burger).*/, /^(\.navbar-menu).*/, /^(\.navbar)\.scrolled/, /^(\.navbar)\.navbar-hidden/, /^\.fade-up/, /^\.slide-left/, /^\.pop-in/, /^\.icon-bounce/, /^\.visible/, /^\.hero-cascade/, /^\.animate/, /^\.repo-/, /^\.company-box/, /^\.company-featured/, /^\.current-badge/, /^\.current-company/, /^\.scroll-top/, /^\.show/, /^\.stagger/, /^\.github-link/],
               timeout: 100,
             }),
             autoprefixer,

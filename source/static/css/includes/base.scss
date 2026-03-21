@@ -21,7 +21,7 @@
   --bulma-primary-s: 85%;
   --bulma-primary-l: 48%;
 
-  --bulma-family-primary: "DM Sans", sans-serif;
+  --bulma-family-primary: "Inter", sans-serif;
 
   --bulma-box-shadow: none;
   --bulma-box-radius: 15px;
@@ -55,45 +55,131 @@ body {
   padding: 0;
   margin: 0;
   height: 100% !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 60px;
 }
 
 // ---------- Navbar ----------
 .navbar {
   width: 100%;
-  padding: 24px;
+  padding: 12px 24px;
+  align-items: center;
   background-color: white !important;
+  transition: background-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s,
+    padding 0.3s, transform 0.3s;
+  z-index: 30;
+
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  &.navbar-hidden {
+    transform: translateY(-100%);
+  }
 
   .navbar-brand {
-    font-size: 1.5em;
     transition: ease-out 0.2s;
 
-    a {
-      color: var(--text-dark);
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
       text-decoration: none;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      font-size: 1.35rem;
+      line-height: 1;
     }
 
-    a:hover {
+    .brand-logo:hover {
       color: var(--accent);
+    }
+
+    .brand-first {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-last {
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-left: 5px;
     }
   }
 
-  .navbar-item {
-    .button.is-light {
-      background-color: transparent;
-      padding: 10px;
-      font-size: 1.1rem;
-    }
+  // Nav links next to logo (desktop)
+  .nav-links-desktop {
+    display: flex !important;
+    padding: 0;
+    margin-left: 24px;
 
-    .button.active {
-      font-weight: bold;
+    .buttons {
+      gap: 0;
+      margin: 0;
     }
+  }
 
-    .button.is-light:hover,
-    .button.is-light:focus {
-      color: var(--accent);
+  .button.is-light {
+    background-color: transparent;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  .button.active {
+    font-weight: bold;
+  }
+
+  .button.active::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .button.is-light:hover,
+  .button.is-light:focus {
+    color: var(--accent);
+  }
+
+  // GitHub CTA button
+  .github-cta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    background: #24292e;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 18px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    svg {
+      flex-shrink: 0;
     }
+  }
+
+  .github-cta:hover {
+    background: #1a1e22;
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  // Hide desktop nav links on mobile, show mobile ones
+  .nav-links-mobile {
+    display: none;
   }
 }
 
@@ -118,17 +204,25 @@ body {
 }
 
 @media screen and (max-width: 1023px) {
+  .navbar .nav-links-desktop {
+    display: none !important;
+  }
+
+  .navbar .nav-links-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
   .navbar-menu {
     margin-top: 10px;
     box-shadow: none;
 
-    .buttons {
-      flex-direction: column;
-      .button {
-        display: block;
-        -webkit-tap-highlight-color: rgba(255, 224, 206, 0.05);
-        user-select: none;
-      }
+    .button {
+      display: block;
+      -webkit-tap-highlight-color: rgba(255, 224, 206, 0.05);
+      user-select: none;
     }
   }
 }
@@ -173,14 +267,156 @@ a {
   margin: 0 5px;
 }
 
-// ---------- Scroll animation ----------
+// ========== Scroll Animations ==========
+
+// Basic fade up
 .fade-up {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+// Staggered children — each child delays by its index
+.stagger > .fade-up:nth-child(1) {
+  transition-delay: 0s;
+}
+.stagger > .fade-up:nth-child(2) {
+  transition-delay: 0.12s;
+}
+.stagger > .fade-up:nth-child(3) {
+  transition-delay: 0.24s;
+}
+.stagger > .fade-up:nth-child(4) {
+  transition-delay: 0.36s;
+}
+.stagger > .fade-up:nth-child(5) {
+  transition-delay: 0.48s;
+}
+.stagger > .fade-up:nth-child(6) {
+  transition-delay: 0.6s;
+}
+.stagger > .fade-up:nth-child(7) {
+  transition-delay: 0.72s;
+}
+
+// Slide in from left (for timeline)
+.slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+// Scale up (for company boxes)
+.pop-in {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.pop-in.visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+// Hero cascade
+.hero-cascade {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: none;
+}
+
+.hero-cascade.animate {
+  animation: heroCascade 0.7s ease forwards;
+}
+
+@keyframes heroCascade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Icon bounce
+.icon-bounce {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.icon-bounce.visible {
+  opacity: 1;
+  transform: scale(1);
+  animation: iconBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes iconBounce {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// CTA shimmer
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+// Scroll-to-top button
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 16px rgba(228, 92, 14, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s, background-color 0.2s;
+  z-index: 100;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+  }
 }
