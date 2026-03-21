@@ -68,7 +68,7 @@ body {
 }
 
 body {
-  padding-top: 56px;
+  padding-top: 0;
   font-family: "Source Sans 3", sans-serif;
   color: var(--text-body);
 }
@@ -94,7 +94,7 @@ body {
   width: 100%;
   padding: 12px 24px;
   align-items: center;
-  background-color: white !important;
+  background-color: transparent !important;
   transition: background-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s,
     padding 0.3s, transform 0.3s;
   z-index: 30;
