@@ -127,7 +127,9 @@ body {
   .button.is-light {
     background-color: transparent;
     padding: 8px 14px;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     position: relative;
   }
 
