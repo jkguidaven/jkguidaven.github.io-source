@@ -49,8 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
       revealObserver.observe(el);
     });
 
-  // ---------- Sticky navbar ----------
+  // ---------- Sticky navbar + progress bar ----------
   const navbar = document.querySelector(".navbar");
+
+
   if (navbar) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
@@ -64,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         navbar.classList.remove("navbar-hidden");
       }
+
     });
   }
 

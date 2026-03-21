@@ -68,7 +68,7 @@ body {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 56px;
   font-family: "Source Sans 3", sans-serif;
   color: var(--text-body);
 }
@@ -94,16 +94,16 @@ body {
   width: 100%;
   padding: 12px 24px;
   align-items: center;
-  background-color: var(--bg-cream) !important;
+  background-color: white !important;
   transition: background-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s,
     padding 0.3s, transform 0.3s;
   z-index: 30;
 
   &.scrolled {
-    background-color: rgba(253, 251, 248, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    box-shadow: 0 1px 0 var(--border-light);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   }
 
   &.navbar-hidden {
@@ -138,6 +138,23 @@ body {
       letter-spacing: -0.02em;
       margin-left: 5px;
     }
+
+    .brand-dot {
+      color: var(--accent);
+      font-weight: 800;
+      margin-left: 1px;
+    }
+  }
+
+  // Scroll progress bar
+  .scroll-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent);
+    width: 0%;
+    transition: none;
   }
 
   // Nav links next to logo (desktop)
