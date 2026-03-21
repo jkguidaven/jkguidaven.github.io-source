@@ -68,7 +68,7 @@ body {
 }
 
 body {
-  padding-top: 0;
+  padding-top: 56px;
   font-family: "Source Sans 3", sans-serif;
   color: var(--text-body);
 }
@@ -94,7 +94,8 @@ body {
   width: 100%;
   padding: 12px 24px;
   align-items: center;
-  background-color: transparent !important;
+  background-color: white !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   transition: background-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s,
     padding 0.3s, transform 0.3s;
   z-index: 30;
@@ -103,7 +104,7 @@ body {
     background-color: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   }
 
   &.navbar-hidden {

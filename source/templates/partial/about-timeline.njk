@@ -8,28 +8,29 @@
   <div class="section-eyebrow fade-up">Career</div>
   <h2 class="section-title fade-up">Work Experience & Education</h2>
 
-  <div class="timeline">
-    <div class="line">
-      {% for record in timeline -%}
-        <div class="record slide-left" style="transition-delay: {{ loop.index0 * 0.1 }}s">
-          <span class="marker">
-            <i class="fa fa-{{ record.icon }}"></i>
-          </span>
+  <div class="year-timeline">
+    {% for record in timeline -%}
+      <div class="year-row blur-in" style="transition-delay: {{ loop.index0 * 0.1 }}s">
+        <div class="year-anchor">
+          <span class="year-number">{{ record.year }}</span>
+          {% if loop.first %}
+            <span class="year-now">Now</span>
+          {% endif %}
+        </div>
 
-          <span class="entry-time">{{ record.time }}</span>
+        <div class="year-line"></div>
 
-          <br>
+        <div class="year-detail">
+          <h3 class="year-company">{{ record.title }}</h3>
+          <span class="year-role">{{ record.subtitle }}</span>
 
-          <strong class="title">{{ record.title }}</strong>
-          <span class="subtitle">, {{ record.subtitle }}</span>
-
-          <ul>
+          <ul class="year-items">
             {% for item in record.items -%}
               <li>{{ item }}</li>
             {%- endfor %}
           </ul>
         </div>
-      {%- endfor %}
-    </div>
+      </div>
+    {%- endfor %}
   </div>
 </section>

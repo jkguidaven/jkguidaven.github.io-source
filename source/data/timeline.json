@@ -1,7 +1,7 @@
 {
   "timeline": [
     {
-      "icon": "briefcase",
+      "year": "2022",
       "time": "AUG 2022 - PRESENT",
       "title": "Automattic Inc.",
       "subtitle": "Software Engineer",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "icon": "briefcase",
+      "year": "2019",
       "time": "OCT 2019 - AUG 2022",
       "title": "Newlogic Pte Ltd, Singapore",
       "subtitle": "Software Engineer",
@@ -22,7 +22,7 @@
       ]
     },
     {
-      "icon": "briefcase",
+      "year": "2018",
       "time": "SEPT 2018 - OCT 2019",
       "title": "Codev, Cebu Philippines",
       "subtitle": "Full Stack Software Engineer",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "icon": "briefcase",
+      "year": "2015",
       "time": "JAN 2015 - DEC 2018",
       "title": "Lexmark R&D Corp, Cebu Philippines",
       "subtitle": "Software Engineer",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "icon": "briefcase",
+      "year": "2014",
       "time": "JAN 2014 - JAN 2015",
       "title": "Serious Dev Technology, Cebu Philippines",
       "subtitle": "Lead Software Engineer & Co-Founder",
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "icon": "briefcase",
+      "year": "2011",
       "time": "JAN 2011 - JAN 2014",
       "title": "NCR Corporation, Cebu Philippines",
       "subtitle": "Software Engineer",
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "icon": "graduation-cap",
+      "year": "2008",
       "time": "2008 - 2011",
       "title": "University of Cebu",
       "subtitle": "BS Information Technology",

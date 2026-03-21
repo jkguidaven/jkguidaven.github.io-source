@@ -273,85 +273,144 @@
     text-align: center;
   }
 
-  .timeline {
-    max-width: 700px;
+  // Year-based editorial timeline
+  .year-timeline {
+    max-width: 760px;
     margin: 0 auto;
-    padding: 10px 10px 10px 30px;
+  }
 
-    .line {
-      border-left: 2px solid var(--border-light);
-      padding-left: 40px;
+  .year-row {
+    display: grid;
+    grid-template-columns: 100px 1px 1fr;
+    gap: 0;
+    align-items: start;
+    position: relative;
 
-      .record {
-        padding: 10px 0 36px;
-        position: relative;
+    &:last-child .year-line {
+      background: none;
+    }
 
-        .marker {
-          position: absolute;
-          left: -51px;
-          top: 4px;
-          width: 20px;
-          text-align: center;
-          color: var(--accent);
+    &:last-child .year-detail {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
 
-          .fa {
-            font-size: 16px;
-          }
-        }
+  .year-anchor {
+    text-align: right;
+    padding-right: 32px;
+    padding-top: 24px;
+    position: sticky;
+    top: 80px;
 
-        .entry-time {
-          display: inline-block;
-          font-family: var(--font-heading);
-          font-size: 0.65rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          color: var(--accent);
-          background: rgba(228, 92, 14, 0.08);
-          padding: 4px 14px;
-          border-radius: 50px;
-          margin-bottom: 8px;
-        }
+    .year-number {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text-dark);
+      line-height: 1;
+      opacity: 0.15;
+      transition: opacity 0.3s;
+    }
 
-        .title {
-          font-family: var(--font-heading);
-          font-size: 1.15rem;
-          font-weight: 700;
-          color: var(--text-dark);
-          letter-spacing: -0.01em;
-        }
+    .year-now {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+  }
 
-        .subtitle {
-          font-size: 1rem;
-          color: var(--text-body);
-        }
+  .year-row:hover .year-anchor .year-number {
+    opacity: 0.5;
+  }
 
-        ul {
-          margin-top: 12px;
-          padding: 0;
-          list-style: none;
+  .year-line {
+    width: 1px;
+    background: var(--border-light);
+    align-self: stretch;
+  }
 
-          li {
-            font-size: 0.95rem;
-            color: var(--text-body);
-            line-height: 1.75;
-            margin: 6px 0;
-            padding-left: 16px;
-            position: relative;
+  .year-detail {
+    padding: 24px 0 40px 32px;
+    border-bottom: 1px solid var(--border-light);
 
-            &::before {
-              content: "";
-              position: absolute;
-              left: 0;
-              top: 11px;
-              width: 4px;
-              height: 4px;
-              border-radius: 50%;
-              background: var(--border-light);
-            }
-          }
-        }
+    &:hover {
+      .year-company {
+        color: var(--accent);
       }
+    }
+  }
+
+  .year-company {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+    transition: color 0.2s;
+  }
+
+  .year-role {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .year-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin: 5px 0;
+      padding-left: 14px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 11px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--border-light);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .timeline-section {
+    .year-row {
+      grid-template-columns: 60px 1px 1fr;
+    }
+
+    .year-anchor {
+      padding-right: 16px;
+      padding-top: 24px;
+
+      .year-number {
+        font-size: 1.4rem;
+      }
+    }
+
+    .year-detail {
+      padding: 20px 0 32px 20px;
     }
   }
 }
