@@ -15,20 +15,6 @@
       ]
     },
     {
-      "name": "Engineering",
-      "icon": "sweng.svg",
-      "description": "Strong foundation in software design principles and system architecture.",
-      "knowledge": [
-        "Data Structures & Algorithms",
-        "Design Patterns & SOLID",
-        "Clean Architecture",
-        "REST & GraphQL APIs",
-        "Microservices & Distributed Systems",
-        "OAuth / OpenID Connect",
-        "Web Security & Accessibility"
-      ]
-    },
-    {
       "name": "Backend",
       "icon": "backend.svg",
       "description": "Designing and building scalable services and cloud infrastructure.",
@@ -40,6 +26,20 @@
         "Docker / Kubernetes",
         "WebSocket",
         "MySQL / PostgreSQL / MongoDB"
+      ]
+    },
+    {
+      "name": "Engineering",
+      "icon": "sweng.svg",
+      "description": "Strong foundation in software design principles and system architecture.",
+      "knowledge": [
+        "Data Structures & Algorithms",
+        "Design Patterns & SOLID",
+        "Clean Architecture",
+        "REST & GraphQL APIs",
+        "Microservices & Distributed Systems",
+        "OAuth / OpenID Connect",
+        "Web Security & Accessibility"
       ]
     }
   ]
