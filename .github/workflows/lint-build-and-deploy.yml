@@ -31,3 +31,4 @@ jobs:
           destination-github-username: "jkguidaven"
           destination-repository-name: "jkguidaven.github.io"
           user-email: jkguidaven@gmail.com
+          target-branch: master
