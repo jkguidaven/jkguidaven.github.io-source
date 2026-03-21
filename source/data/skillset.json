@@ -32,7 +32,7 @@
       "name": "Backend",
       "icon": "backend.svg",
       "description": "Designing and building scalable services and cloud infrastructure.",
-      "languages": ["JavaScript", "Java", "PHP", "Go"],
+      "languages": ["JavaScript", "Java", "PHP"],
       "tools": [
         "Node.js / Express",
         "Spring Boot",

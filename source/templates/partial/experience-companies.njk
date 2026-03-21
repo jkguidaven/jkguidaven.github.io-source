@@ -2,14 +2,31 @@
   <div class="section-eyebrow">Experience</div>
   <div class="section-title">Companies I've Worked With</div>
 
+  {% for company in companies -%}
+    {% if loop.first %}
+      <div class="current-company-row">
+        <a class="company-box company-featured lazyload fade-up"
+          href="{{ company.url }}" rel="noreferrer" target="_blank"
+          style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
+          data-bg="/assets/images/companies/{{ company.brand.image }}"
+          aria-label="{{ company.name }}"
+        >
+          <span class="current-badge">Current</span>
+        </a>
+      </div>
+    {% endif %}
+  {%- endfor %}
+
   <div class="company-grid">
     {% for company in companies -%}
-      <a class="company-box lazyload fade-up"
-        href="{{ company.url }}" rel="noreferrer" target="_blank"
-        style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
-        data-bg="/assets/images/companies/{{ company.brand.image }}"
-        aria-label="{{ company.name }}"
-      ></a>
+      {% if not loop.first %}
+        <a class="company-box lazyload fade-up"
+          href="{{ company.url }}" rel="noreferrer" target="_blank"
+          style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
+          data-bg="/assets/images/companies/{{ company.brand.image }}"
+          aria-label="{{ company.name }}"
+        ></a>
+      {% endif %}
     {%- endfor %}
   </div>
 </div>
