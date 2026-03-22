@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ---------- Logo split-merge animation ----------
+  const brandLogo = document.getElementById("brand-logo");
+  if (brandLogo) {
+    setTimeout(() => {
+      brandLogo.classList.add("logo-animate");
+    }, 100);
+  }
+
   // ---------- Hero cascade animation ----------
   const heroCascadeEls = document.querySelectorAll(".hero-cascade");
   heroCascadeEls.forEach((el, i) => {
@@ -57,8 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         navbar.classList.add("scrolled");
+        navbar.classList.remove("at-top");
       } else {
         navbar.classList.remove("scrolled");
+        navbar.classList.add("at-top");
       }
 
       if (scrollDirection === "down" && window.scrollY > 100) {

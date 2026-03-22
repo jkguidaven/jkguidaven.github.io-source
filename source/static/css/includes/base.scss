@@ -136,12 +136,14 @@ body {
     .brand-first {
       font-weight: 700;
       letter-spacing: -0.04em;
+      opacity: 0;
     }
 
     .brand-last {
       font-weight: 300;
       letter-spacing: -0.02em;
       margin-left: 5px;
+      opacity: 0;
     }
 
     .brand-dot {
@@ -150,6 +152,7 @@ body {
       margin-left: 1px;
       display: inline-block;
       transition: transform 0.3s;
+      opacity: 0;
     }
   }
 
@@ -274,7 +277,66 @@ body {
   background-color: rgba(228, 92, 14, 0.06);
 }
 
+// ---------- Logo split-merge animation ----------
+.logo-animate .brand-first {
+  animation: slideFromLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.logo-animate .brand-last {
+  animation: slideFromRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.logo-animate .brand-dot {
+  animation: dotDrop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dotDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.5);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(2px) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @media screen and (max-width: 1023px) {
+  body {
+    padding-top: 0;
+  }
+
+  .navbar.at-top {
+    background-color: transparent !important;
+    box-shadow: none;
+  }
+
   .navbar .nav-links-desktop {
     display: none !important;
   }
