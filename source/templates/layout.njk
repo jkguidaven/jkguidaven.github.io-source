@@ -20,16 +20,23 @@
     <link rel="manifest" href="/assets/manifest.json">
 
     <meta name="google-site-verification" content="AsC9RBLM1dftaRXrUug8RcZxH-6xijC0QEsDME3XxGg" />
-    <meta name="title" content="James Kenneth Guidaven - Software Engineer">
-    <meta name="Description" content="Frontend-focused software engineer with 15+ years of experience. Currently at Automattic, building products that power the web.">
+    <meta name="title" content="{{ og_title | default('James Kenneth Guidaven - Software Engineer') }}">
+    <meta name="Description" content="{{ og_description | default('Frontend-focused software engineer with 15+ years of experience. Currently at Automattic, building products that power the web.') }}">
     <meta name="author" content="James Kenneth Guidaven">
 
-    <meta property="og:title" content="James Kenneth Guidaven - Software Engineer" />
-    <meta property="og:description" content="Frontend-focused software engineer with 15+ years of experience. Currently at Automattic, building products that power the web." />
-    <meta property="og:image" content="https://jkguidaven.github.io/assets/images/hero.jpg" />
-    <meta property="og:url" content="https://jkguidaven.github.io" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="James Kenneth Guidaven" />
+    <meta property="og:title" content="{{ og_title | default('James Kenneth Guidaven - Software Engineer') }}" />
+    <meta property="og:description" content="{{ og_description | default('Frontend-focused software engineer with 15+ years of experience. Currently at Automattic, building products that power the web.') }}" />
+    <meta property="og:image" content="https://jkguidaven.github.io/assets/images/{{ og_image | default('hero-banner.jpg') }}" />
+    <meta property="og:url" content="https://jkguidaven.github.io{{ og_url | default('/') }}" />
 
-    <title>James Kenneth Guidaven{{ (" - " + page) if page and page !== 'home' }}</title>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ og_title | default('James Kenneth Guidaven - Software Engineer') }}" />
+    <meta name="twitter:description" content="{{ og_description | default('Frontend-focused software engineer with 15+ years of experience. Currently at Automattic, building products that power the web.') }}" />
+    <meta name="twitter:image" content="https://jkguidaven.github.io/assets/images/{{ og_image | default('hero-banner.jpg') }}" />
+
+    <title>{{ og_title | default('James Kenneth Guidaven') }}{{ (" - " + page) if page and page !== 'home' }}</title>
 
     <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
