@@ -205,17 +205,17 @@ body {
     color: var(--accent);
   }
 
-  // GitHub CTA
+  // GitHub CTA — outlined with hover fill
   .github-cta {
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 600;
-    color: white;
-    background: #1f1d1a;
-    border: none;
+    color: var(--text-dark);
+    background: transparent;
+    border: 1.5px solid var(--text-dark);
     border-radius: 50px;
-    padding: 8px 18px;
-    transition: all 0.25s;
+    padding: 7px 18px;
+    transition: all 0.3s;
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -223,14 +223,19 @@ body {
 
     svg {
       flex-shrink: 0;
+      transition: transform 0.3s;
     }
   }
 
   .github-cta:hover {
-    background: var(--accent);
+    background: var(--text-dark);
     color: white;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px var(--accent-glow);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+    svg {
+      transform: scale(1.1);
+    }
   }
 
   .nav-links-mobile {
@@ -416,6 +421,77 @@ body {
 strong,
 a {
   margin: 0 5px;
+}
+
+// ========== Buttons ==========
+
+// Primary CTA with arrow slide
+.btn-primary-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 14px 32px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: white;
+  background: var(--accent);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--accent-glow);
+
+  .btn-text {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-arrow {
+    display: inline-block;
+    width: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    margin: 0;
+  }
+
+  &:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 8px 24px var(--accent-glow);
+    color: white;
+
+    .btn-arrow {
+      width: 20px;
+      opacity: 1;
+      transform: translateX(0);
+      margin-left: 8px;
+    }
+  }
+}
+
+// Secondary outlined button
+.btn-outline-hover {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: transparent;
+  border: 1.5px solid var(--border-light);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s;
+
+  &:hover {
+    background: var(--text-dark);
+    border-color: var(--text-dark);
+    color: white;
+    transform: translateY(-1px);
+  }
 }
 
 // ========== Scroll Animations ==========
