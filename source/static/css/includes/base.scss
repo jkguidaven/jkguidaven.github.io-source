@@ -277,6 +277,20 @@ body {
   background-color: rgba(228, 92, 14, 0.06);
 }
 
+// ---------- Nav items reveal ----------
+.nav-reveal {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.nav-reveal.nav-shown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 // ---------- Logo split-merge animation ----------
 .logo-animate .brand-first {
   animation: slideFromLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;

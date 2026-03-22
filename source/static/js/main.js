@@ -10,12 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // ---------- Logo split-merge animation ----------
+  // ---------- Logo split-merge animation + nav reveal ----------
   const brandLogo = document.getElementById("brand-logo");
   if (brandLogo) {
     setTimeout(() => {
       brandLogo.classList.add("logo-animate");
     }, 100);
+
+    // After logo finishes, reveal all nav items at once
+    setTimeout(() => {
+      document.querySelectorAll(".nav-reveal").forEach((item) => {
+        item.classList.add("nav-shown");
+      });
+    }, 900);
   }
 
   // ---------- Hero cascade animation ----------
