@@ -3,7 +3,7 @@
     {
       "name": "Frontend",
       "icon": "frontend.svg",
-      "description": "Building responsive, performant user interfaces with modern frameworks and tooling.",
+      "description": "Where I spend most of my time — turning designs into fast, accessible interfaces that work everywhere.",
       "languages": ["JavaScript/TypeScript", "HTML5/CSS3"],
       "tools": [
         "Angular / Vue / React",
@@ -17,7 +17,7 @@
     {
       "name": "Backend",
       "icon": "backend.svg",
-      "description": "Designing and building scalable services and cloud infrastructure.",
+      "description": "APIs, databases, and the infrastructure that keeps frontends fed with data.",
       "languages": ["JavaScript", "Java", "PHP"],
       "tools": [
         "Node.js / Express",
@@ -31,7 +31,7 @@
     {
       "name": "Engineering",
       "icon": "sweng.svg",
-      "description": "Strong foundation in software design principles and system architecture.",
+      "description": "The thinking behind the code — how to build systems that last and teams that move fast.",
       "knowledge": [
         "Data Structures & Algorithms",
         "Design Patterns & SOLID",

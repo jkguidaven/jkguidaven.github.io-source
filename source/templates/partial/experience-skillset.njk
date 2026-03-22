@@ -1,8 +1,8 @@
 <div class="skillset-inner">
-  <div class="section-eyebrow fade-up">What I Do</div>
-  <div class="section-title fade-up">Skills & Expertise</div>
+  <div class="section-eyebrow fade-up">Toolkit</div>
+  <div class="section-title fade-up">What I Work With</div>
   <p class="section-subtitle fade-up">
-    The technologies and principles I work with every day
+    From UI frameworks to cloud services — the stack behind the work
   </p>
 
   <div class="terminal-window blur-in">
@@ -26,11 +26,11 @@
 
           <div class="terminal-output">
             <div class="output-header">
-              <span class="output-hash">#</span> {{ role.name }}
-              {% if loop.first %}<span class="output-badge">primary</span>{% endif %}
+              <span class="output-hash">#</span>&nbsp;{{ role.name }}
+              {% if loop.first %}&nbsp;<span class="output-badge">primary</span>{% endif %}
             </div>
 
-            <p class="output-desc">> {{ role.description }}</p>
+            <p class="output-desc">&gt;&nbsp;{{ role.description }}</p>
 
             {% if role.languages %}
               <div class="output-section">
