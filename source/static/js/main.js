@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document
     .querySelectorAll(
-      ".fade-up, .slide-left, .pop-in, .icon-bounce, .blur-in, .tilt-in, .reveal-wipe"
+      ".fade-up, .slide-left, .pop-in, .icon-bounce, .blur-in, .tilt-in, .reveal-wipe, .bubble-in"
     )
     .forEach((el) => {
       revealObserver.observe(el);

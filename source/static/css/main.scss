@@ -745,19 +745,28 @@
     }
   }
 
-  .orbit-item {
+  // Slot: handles positioning only
+  .orbit-slot {
     position: absolute;
+    z-index: 2;
+  }
+
+  // Planet: handles visual styling + float animation (set inline)
+  .orbit-planet {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center;
     text-decoration: none;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     border: 2px solid white;
+    display: block;
+    position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 2;
 
     &:hover {
-      transform: scale(1.25) !important;
+      transform: scale(1.2) !important;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
       z-index: 10;
     }
@@ -769,16 +778,16 @@
     top: 40px;
     left: 50%;
     margin-left: -45px;
-    border-color: var(--accent);
-    border-width: 3px;
-    animation: float1 6s ease-in-out infinite;
+    .orbit-planet {
+      border-color: var(--accent);
+      border-width: 3px;
+    }
   }
   .orbit-pos-2 {
     width: 72px;
     height: 72px;
     top: 100px;
     right: 55px;
-    animation: float2 7s ease-in-out infinite;
   }
   .orbit-pos-3 {
     width: 60px;
@@ -786,14 +795,12 @@
     top: 50%;
     right: 35px;
     margin-top: -30px;
-    animation: float3 8s ease-in-out infinite;
   }
   .orbit-pos-4 {
     width: 68px;
     height: 68px;
     bottom: 85px;
     right: 75px;
-    animation: float4 6.5s ease-in-out infinite;
   }
   .orbit-pos-5 {
     width: 54px;
@@ -801,21 +808,18 @@
     bottom: 50px;
     left: 50%;
     margin-left: -27px;
-    animation: float5 7.5s ease-in-out infinite;
   }
   .orbit-pos-6 {
     width: 58px;
     height: 58px;
     bottom: 110px;
     left: 65px;
-    animation: float6 8.5s ease-in-out infinite;
   }
   .orbit-pos-7 {
     width: 64px;
     height: 64px;
     top: 135px;
     left: 45px;
-    animation: float7 7s ease-in-out infinite;
   }
 
   @keyframes float1 {

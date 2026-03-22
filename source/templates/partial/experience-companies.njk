@@ -5,33 +5,37 @@
     From startups to enterprise — building software across industries
   </p>
 
-  <div class="orbit-container fade-up">
+  <div class="orbit-container">
     <div class="orbit-ring orbit-ring-outer"></div>
     <div class="orbit-ring orbit-ring-inner"></div>
 
     <div class="orbit-center">
-      <img src="/assets/images/hero.jpg" alt="James Kenneth" />
+      <div class="bubble-in" style="--bubble-delay: 0s">
+        <img src="/assets/images/hero.jpg" alt="James Kenneth" />
+      </div>
     </div>
 
     {% for company in companies -%}
-      <a class="orbit-item orbit-pos-{{ loop.index }} lazyload"
-        href="{{ company.url }}" rel="noreferrer" target="_blank"
-        style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
-        data-bg="/assets/images/companies/{{ company.brand.image }}"
-        aria-label="{{ company.name }}"
-      >
-        {% if loop.first %}
-          <span class="orbit-badge">Current</span>
-        {% endif %}
-      </a>
+      <div class="orbit-slot orbit-pos-{{ loop.index }} bubble-in" style="--bubble-delay: {{ 0.15 + loop.index0 * 0.12 }}s">
+        <a class="orbit-planet lazyload"
+          href="{{ company.url }}" rel="noreferrer" target="_blank"
+          style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }}; animation: float{{ loop.index }} {{ 6 + loop.index0 * 0.5 }}s ease-in-out infinite"
+          data-bg="/assets/images/companies/{{ company.brand.image }}"
+          aria-label="{{ company.name }}"
+        >
+          {% if loop.first %}
+            <span class="orbit-badge">Current</span>
+          {% endif %}
+        </a>
+      </div>
     {%- endfor %}
   </div>
 
   <div class="orbit-mobile-fallback">
     {% for company in companies -%}
-      <a class="orbit-mobile-item lazyload"
+      <a class="orbit-mobile-item lazyload bubble-in"
         href="{{ company.url }}" rel="noreferrer" target="_blank"
-        style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }};"
+        style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }}; --bubble-delay: {{ loop.index0 * 0.1 }}s"
         data-bg="/assets/images/companies/{{ company.brand.image }}"
         aria-label="{{ company.name }}"
       >
