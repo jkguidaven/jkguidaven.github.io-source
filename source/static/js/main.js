@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
       brandLogo.classList.add("logo-animate");
     }, 100);
 
-    // After logo finishes, reveal all nav items at once
     setTimeout(() => {
       document.querySelectorAll(".nav-reveal").forEach((item) => {
         item.classList.add("nav-shown");
@@ -36,11 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---------- Scroll direction tracking ----------
   let lastScrollY = window.scrollY;
   let scrollDirection = "down";
-
-  window.addEventListener("scroll", () => {
-    scrollDirection = window.scrollY > lastScrollY ? "down" : "up";
-    lastScrollY = window.scrollY;
-  });
 
   // ---------- Scroll reveal observer ----------
   const revealObserver = new IntersectionObserver(
@@ -64,40 +58,52 @@ document.addEventListener("DOMContentLoaded", () => {
       revealObserver.observe(el);
     });
 
-  // ---------- Sticky navbar + progress bar ----------
+  // ---------- Single unified scroll handler ----------
   const navbar = document.querySelector(".navbar");
-
-
-  if (navbar) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-        navbar.classList.remove("at-top");
-      } else {
-        navbar.classList.remove("scrolled");
-        navbar.classList.add("at-top");
-      }
-
-      if (scrollDirection === "down" && window.scrollY > 100) {
-        navbar.classList.add("navbar-hidden");
-      } else {
-        navbar.classList.remove("navbar-hidden");
-      }
-
-    });
-  }
-
-  // ---------- Scroll-to-top button ----------
   const scrollBtn = document.getElementById("scroll-top");
-  if (scrollBtn) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
-    });
+  let ticking = false;
 
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        scrollDirection = scrollY > lastScrollY ? "down" : "up";
+        lastScrollY = scrollY;
+
+        // Navbar
+        if (navbar) {
+          if (scrollY > 50) {
+            navbar.classList.add("scrolled");
+            navbar.classList.remove("at-top");
+          } else {
+            navbar.classList.remove("scrolled");
+            navbar.classList.add("at-top");
+          }
+
+          if (scrollDirection === "down" && scrollY > 100) {
+            navbar.classList.add("navbar-hidden");
+          } else {
+            navbar.classList.remove("navbar-hidden");
+          }
+        }
+
+        // Scroll-to-top button
+        if (scrollBtn) {
+          if (scrollY > 400) {
+            scrollBtn.classList.add("show");
+          } else {
+            scrollBtn.classList.remove("show");
+          }
+        }
+
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ---------- Scroll-to-top click ----------
+  if (scrollBtn) {
     scrollBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
