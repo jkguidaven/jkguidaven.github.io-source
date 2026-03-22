@@ -22,8 +22,9 @@
   visObserver.observe(hero);
 
   function resize() {
-    canvas.width = hero.offsetWidth;
-    canvas.height = hero.offsetHeight;
+    var rect = hero.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
     for (var i = 0; i < particles.length; i++) {
       if (particles[i].isIdle) {
         particles[i].wanderX = Math.random() * canvas.width;
@@ -178,14 +179,25 @@
     canvas.style.pointerEvents = "none";
   });
 
-  window.addEventListener("resize", function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resize, 150);
-  });
+  // Use ResizeObserver instead of window resize for better perf
+  if (typeof ResizeObserver !== "undefined") {
+    var ro = new ResizeObserver(function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 150);
+    });
+    ro.observe(hero);
+  } else {
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resize, 150);
+    });
+  }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", function () {
+      requestAnimationFrame(init);
+    });
   } else {
-    init();
+    requestAnimationFrame(init);
   }
 })();
