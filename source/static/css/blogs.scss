@@ -8,6 +8,19 @@
   align-items: center;
   text-align: center;
   padding: 60px 24px;
+  background-color: var(--bg-cream);
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+
+  .coming-soon-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.15;
+  }
 
   .coming-soon-title {
     font-family: var(--font-heading);
@@ -20,5 +33,7 @@
   .coming-soon-text {
     font-size: 1rem;
     color: var(--text-body);
+    max-width: 360px;
+    line-height: 1.7;
   }
 }
