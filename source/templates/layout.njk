@@ -20,9 +20,13 @@
     <link rel="manifest" href="/assets/manifest.json">
 
     <meta name="google-site-verification" content="AsC9RBLM1dftaRXrUug8RcZxH-6xijC0QEsDME3XxGg" />
+    <meta name="robots" content="index, follow">
     <meta name="title" content="{{ og_title | default('James Kenneth Guidaven - Software Engineer') }}">
     <meta name="Description" content="{{ og_description | default('Frontend-focused software engineer with 15+ years of experience. Currently at Automattic, building products that power the web.') }}">
+    <meta name="keywords" content="James Kenneth Guidaven, Software Engineer, Frontend Developer, Full Stack Developer, Automattic, WordPress, WooCommerce, JavaScript, TypeScript, React">
     <meta name="author" content="James Kenneth Guidaven">
+    <link rel="canonical" href="https://jkguidaven.github.io{{ og_url | default('/') }}">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="James Kenneth Guidaven" />
@@ -35,8 +39,29 @@
     <meta name="twitter:title" content="{{ og_title | default('James Kenneth Guidaven - Software Engineer') }}" />
     <meta name="twitter:description" content="{{ og_description | default('Frontend-focused software engineer with 15+ years of experience. Currently at Automattic, building products that power the web.') }}" />
     <meta name="twitter:image" content="https://jkguidaven.github.io/assets/images/{{ og_image | default('hero-banner.jpg') }}" />
+    <meta name="twitter:site" content="@jkguidaven" />
+    <meta name="twitter:creator" content="@jkguidaven" />
 
-    <title>{{ og_title | default('James Kenneth Guidaven') }}{{ (" - " + page) if page and page !== 'home' }}</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "James Kenneth Guidaven",
+      "jobTitle": "Software Engineer",
+      "url": "https://jkguidaven.github.io/",
+      "sameAs": [
+        "https://github.com/jkguidaven",
+        "https://ph.linkedin.com/in/james-kenneth-guidaven-4b6699148"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Automattic"
+      },
+      "knowsAbout": ["Frontend Development", "JavaScript", "TypeScript", "React", "WordPress", "WooCommerce"]
+    }
+    </script>
+
+    <title>{{ og_title | default('James Kenneth Guidaven - Software Engineer') }}</title>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

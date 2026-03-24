@@ -1,6 +1,6 @@
 <div class="companies-section">
   <div class="section-eyebrow fade-up">Track Record</div>
-  <div class="section-title fade-up">Where I've Shipped Code</div>
+  <h2 class="section-title fade-up">Where I've Shipped Code</h2>
   <p class="section-subtitle fade-up">
     Self-checkout systems, e-commerce platforms, mobile apps, and the open web
   </p>
@@ -18,7 +18,7 @@
     {% for company in companies -%}
       <div class="orbit-slot orbit-pos-{{ loop.index }} bubble-in" style="--bubble-delay: {{ 0.15 + loop.index0 * 0.12 }}s">
         <a class="orbit-planet lazyload"
-          href="{{ company.url }}" rel="noreferrer" target="_blank"
+          href="{{ company.url }}" rel="noopener noreferrer" target="_blank"
           style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }}; animation: float{{ loop.index }} {{ 6 + loop.index0 * 0.5 }}s ease-in-out infinite"
           data-bg="/assets/images/companies/{{ company.brand.image }}"
           aria-label="{{ company.name }}"
@@ -34,7 +34,7 @@
   <div class="orbit-mobile-fallback">
     {% for company in companies -%}
       <a class="orbit-mobile-item lazyload bubble-in"
-        href="{{ company.url }}" rel="noreferrer" target="_blank"
+        href="{{ company.url }}" rel="noopener noreferrer" target="_blank"
         style="background-color: {{ company.brand.color }}; background-size: {{ company.brand.size }}; --bubble-delay: {{ loop.index0 * 0.1 }}s"
         data-bg="/assets/images/companies/{{ company.brand.image }}"
         aria-label="{{ company.name }}"

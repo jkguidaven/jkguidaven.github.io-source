@@ -93,7 +93,7 @@ gulp.task("build:css", function () {
             uncss({
               htmlroot: outputFolder,
               html: [`${outputFolder}/${htmlFile}`],
-              ignore: [/^(\.navbar-burger).*/, /^(\.navbar-menu).*/, /^(\.navbar)\.scrolled/, /^(\.navbar)\.navbar-hidden/, /^\.fade-up/, /^\.slide-left/, /^\.pop-in/, /^\.icon-bounce/, /^\.blur-in/, /^\.tilt-in/, /^\.reveal-wipe/, /^\.visible/, /^\.hero-cascade/, /^\.animate/, /^\.repo-/, /^\.orbit/, /^\.bubble-in/, /^\.btn-primary-arrow/, /^\.btn-text/, /^\.btn-arrow/, /^\.btn-outline-hover/, /^\.statement/, /^\.company-box/, /^\.company-featured/, /^\.current-badge/, /^\.current-company/, /^\.scroll-top/, /^\.show/, /^\.stagger/, /^\.marquee/, /^\.pill/, /^\.terminal/, /^\.output-/, /^\.prompt-/, /^\.cursor/, /^\.whoami/, /^\.about-statement/, /^\.footer-/, /^\.site-footer/, /^\.stat-/, /^\.stats-/, /^\.scroll-progress/, /^\.brand-dot/, /^\.timeline-/, /^\.tl-/, /^\.year-/, /^\.logo-animate/, /^\.at-top/, /slideFromLeft/, /slideFromRight/, /dotDrop/, /brand-first/, /brand-last/, /brand-dot/, /nav-reveal/, /nav-shown/],
+              ignore: [/^(\.navbar-burger).*/, /^(\.navbar-menu).*/, /^(\.navbar)\.scrolled/, /^(\.navbar)\.navbar-hidden/, /^\.fade-up/, /^\.slide-left/, /^\.pop-in/, /^\.icon-bounce/, /^\.blur-in/, /^\.tilt-in/, /^\.reveal-wipe/, /^\.visible/, /^\.hero-cascade/, /^\.animate/, /^\.repo-/, /^\.orbit/, /^\.bubble-in/, /^\.btn-primary-arrow/, /^\.btn-text/, /^\.btn-arrow/, /^\.btn-outline-hover/, /^\.statement/, /^\.company-box/, /^\.company-featured/, /^\.current-badge/, /^\.current-company/, /^\.scroll-top/, /^\.show/, /^\.sr-only/, /^\.stagger/, /^\.marquee/, /^\.pill/, /^\.terminal/, /^\.output-/, /^\.prompt-/, /^\.cursor/, /^\.whoami/, /^\.about-statement/, /^\.footer-/, /^\.site-footer/, /^\.stat-/, /^\.stats-/, /^\.scroll-progress/, /^\.brand-dot/, /^\.timeline-/, /^\.tl-/, /^\.year-/, /^\.logo-animate/, /^\.at-top/, /slideFromLeft/, /slideFromRight/, /dotDrop/, /brand-first/, /brand-last/, /brand-dot/, /nav-reveal/, /nav-shown/],
               timeout: 100,
             }),
             autoprefixer,
@@ -159,6 +159,12 @@ gulp.task("minify:html", function () {
     .pipe(gulp.dest(outputFolder));
 });
 
+gulp.task("build:root", function () {
+  return gulp
+    .src([`${sourceFolder}/static/root/**`])
+    .pipe(gulp.dest(outputFolder));
+});
+
 gulp.task("deploy", function () {
   // write your script here to deploy app to your server
 });
@@ -173,6 +179,7 @@ gulp.task(
     "build:css",
     "merge:css",
     "include:lazysizes",
+    "build:root",
     "minify:html",
   ])
 );
@@ -187,6 +194,7 @@ gulp.task("watch", function () {
       "build:css",
       "merge:css",
       "include:lazysizes",
+      "build:root",
     ])
   );
 });

@@ -2,12 +2,31 @@
 {% set og_title = 'About - James Kenneth Guidaven' %}
 {% set og_description = '15+ years building software across 7 companies. From self-checkout systems at NCR to the WordPress ecosystem at Automattic.' %}
 {% set og_image = 'about.jpg' %}
-{% set og_url = '/about' %}
+{% set og_url = '/about/' %}
 {% extends "layout.njk" %}
 
 {% block head %}
 <!-- inject:css -->
 <!-- endinject -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About James Kenneth Guidaven",
+  "description": "15+ years building software across 7 companies. From self-checkout systems at NCR to the WordPress ecosystem at Automattic.",
+  "url": "https://jkguidaven.github.io/about/",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "James Kenneth Guidaven",
+    "jobTitle": "Software Engineer",
+    "url": "https://jkguidaven.github.io/",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Automattic"
+    }
+  }
+}
+</script>
 {% endblock %}
 
 {% block content %}
