@@ -144,9 +144,10 @@ gulp.task("minify:html", function () {
     .src(`${outputFolder}/**/*.html`)
     .pipe(
       htmlmin({
-        collapseInlineTagWhitespace: true,
+        collapseInlineTagWhitespace: false,
         collapseBooleanAttributes: true,
         collapseWhitespace: true,
+        conservativeCollapse: true,
         sortAttributes: true,
         sortClassName: true,
         removeComments: true,

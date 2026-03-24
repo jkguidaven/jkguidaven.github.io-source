@@ -602,6 +602,19 @@ a {
   transform: translateY(0);
 }
 
+.blur-in {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, filter 0.7s ease, transform 0.7s ease;
+}
+
+.blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
 .stagger > .fade-up:nth-child(1) {
   transition-delay: 0s;
 }
