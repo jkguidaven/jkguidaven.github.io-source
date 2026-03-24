@@ -108,4 +108,57 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
+
+  // ---------- Projects carousel ----------
+  const viewport = document.querySelector(".carousel-viewport");
+  const track = document.querySelector(".carousel-track");
+  const slides = document.querySelectorAll(".carousel-slide");
+  const dots = document.querySelectorAll(".carousel-dot");
+  const prevBtn = document.querySelector(".carousel-btn-prev");
+  const nextBtn = document.querySelector(".carousel-btn-next");
+
+  if (track && slides.length) {
+    let currentIndex = 0;
+    const maxIndex = slides.length - 1;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
+      if (prevBtn) prevBtn.disabled = currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < maxIndex) { currentIndex++; updateCarousel(); }
+      });
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        currentIndex = i;
+        updateCarousel();
+      });
+    });
+
+    // Mobile swipe-scroll syncing dots
+    if (viewport) {
+      viewport.addEventListener("scroll", () => {
+        const slideWidth = slides[0].offsetWidth;
+        const newIndex = Math.round(viewport.scrollLeft / slideWidth);
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex <= maxIndex) {
+          currentIndex = newIndex;
+          dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
+        }
+      }, { passive: true });
+    }
+
+    updateCarousel();
+  }
 });
