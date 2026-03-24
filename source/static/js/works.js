@@ -1,51 +1,50 @@
 const GITHUB_REPOSITORY_ENDPOINT =
-  "https://api.github.com/users/jkguidaven/repos";
+  "https://api.github.com/users/jkguidaven/repos?sort=updated&per_page=100";
 
 const REPO_LOCAL_STORAGE_KEY = "REPOS";
 
 function gitHubRepositoryFetch() {
   if (localStorage.getItem(REPO_LOCAL_STORAGE_KEY)) {
-    const cache = JSON.parse(localStorage.getItem(REPO_LOCAL_STORAGE_KEY));
-    const currentTimestamp = new Date();
-    const timestamp = new Date(cache.timestamp);
-    const ONE_HOUR = 60 * 60 * 1000;
+    try {
+      const cache = JSON.parse(localStorage.getItem(REPO_LOCAL_STORAGE_KEY));
+      const ONE_HOUR = 60 * 60 * 1000;
 
-    if (
-      cache.repositories.length > 0 &&
-      ONE_HOUR > currentTimestamp - timestamp
-    ) {
-      return Promise.resolve(cache.repositories);
+      if (
+        cache.repositories.length > 0 &&
+        ONE_HOUR > Date.now() - new Date(cache.timestamp).getTime()
+      ) {
+        return Promise.resolve(cache.repositories);
+      }
+    } catch (_) {
+      localStorage.removeItem(REPO_LOCAL_STORAGE_KEY);
     }
   }
 
-  return new Promise((resolve) => {
-    axios
-      .get(GITHUB_REPOSITORY_ENDPOINT)
-      .then(({ data }) => {
-        const forResolve = data
-          .filter((repo) => repo.name !== "jkguidaven.github.io")
-          .map((repository) => getMoreDetails(repository));
-
-        Promise.all(forResolve).then((repositories) => {
-          persistData(repositories);
-          resolve(repositories);
-        });
-      })
-      .catch((_) => resolve([]));
-  });
-}
-
-function getMoreDetails(repository) {
-  return new Promise((resolve) => {
-    axios.get(repository.languages_url).then(({ data }) => {
-      resolve({
-        name: repository.name,
-        description: repository.description,
-        link: repository.html_url,
-        languages: Object.keys(data),
+  return fetch(GITHUB_REPOSITORY_ENDPOINT)
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      var filtered = data.filter(function (repo) {
+        return repo.name !== "jkguidaven.github.io";
       });
-    });
-  });
+
+      return Promise.all(filtered.map(function (repo) {
+        return fetch(repo.languages_url)
+          .then(function (res) { return res.json(); })
+          .then(function (langs) {
+            return {
+              name: repo.name,
+              description: repo.description,
+              link: repo.html_url,
+              languages: Object.keys(langs),
+            };
+          });
+      }));
+    })
+    .then(function (repositories) {
+      persistData(repositories);
+      return repositories;
+    })
+    .catch(function () { return []; });
 }
 
 function persistData(repositories) {
@@ -53,37 +52,42 @@ function persistData(repositories) {
     REPO_LOCAL_STORAGE_KEY,
     JSON.stringify({
       timestamp: new Date(),
-      repositories,
+      repositories: repositories,
     })
   );
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector("#github-repositories-container");
+document.addEventListener("DOMContentLoaded", function () {
+  var container = document.querySelector("#github-repositories-container");
+  if (!container) return;
 
-  gitHubRepositoryFetch().then((repositories) => {
+  gitHubRepositoryFetch().then(function (repositories) {
     container.innerHTML = "";
-    repositories.forEach(({ name, description, link, languages }) => {
-      const infoBox = document.createElement("div");
-      infoBox.classList.add("column");
-      infoBox.classList.add("is-4");
+    container.removeAttribute("aria-hidden");
 
-      let languagesHtml = "";
-      languages.forEach((language) => {
-        languagesHtml += `<span>${language}</span>`;
-      });
+    if (repositories.length === 0) {
+      container.innerHTML = "<p>Could not load repositories.</p>";
+      return;
+    }
 
-      infoBox.innerHTML = `
-        <div class='repo-card'>
-          <a href='${link}' target='_blank' rel='noreferrer' role='link'>
-            <h1>${name}</h1>
-          </a>
-          <p>${description || "No description"}</p>
-          <div class='repo-languages'>${languagesHtml}</div>
-        </div>
-      `;
+    repositories.forEach(function (repo) {
+      var col = document.createElement("div");
+      col.className = "column is-4";
 
-      container.append(infoBox);
+      var languagesHtml = repo.languages
+        .map(function (lang) { return "<span>" + lang + "</span>"; })
+        .join("");
+
+      col.innerHTML =
+        "<div class='repo-card fade-up'>" +
+          "<a href='" + repo.link + "' target='_blank' rel='noopener noreferrer'>" +
+            "<h3>" + repo.name + "</h3>" +
+          "</a>" +
+          "<p>" + (repo.description || "No description") + "</p>" +
+          "<div class='repo-languages'>" + languagesHtml + "</div>" +
+        "</div>";
+
+      container.appendChild(col);
     });
   });
 });
