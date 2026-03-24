@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".nav-reveal").forEach((item) => {
         item.classList.add("nav-shown");
       });
-    }, 900);
+    }, 300);
   }
 
   // ---------- Hero cascade animation ----------
