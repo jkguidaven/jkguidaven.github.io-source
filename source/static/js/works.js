@@ -66,28 +66,77 @@ document.addEventListener("DOMContentLoaded", function () {
     container.removeAttribute("aria-hidden");
 
     if (repositories.length === 0) {
-      container.innerHTML = "<p>Could not load repositories.</p>";
+      container.innerHTML = "<p class='repos-empty'>Could not load repositories — try refreshing.</p>";
       return;
     }
 
-    repositories.forEach(function (repo) {
-      var col = document.createElement("div");
-      col.className = "column is-4";
+    var INITIAL_COUNT = 6;
+
+    repositories.forEach(function (repo, i) {
+      var card = document.createElement("div");
+      card.className = "repo-card fade-up";
+      card.style.transitionDelay = (i * 0.06) + "s";
+
+      if (i >= INITIAL_COUNT) {
+        card.classList.add("repo-hidden");
+      }
 
       var languagesHtml = repo.languages
         .map(function (lang) { return "<span>" + lang + "</span>"; })
         .join("");
 
-      col.innerHTML =
-        "<div class='repo-card fade-up'>" +
-          "<a href='" + repo.link + "' target='_blank' rel='noopener noreferrer'>" +
-            "<h3>" + repo.name + "</h3>" +
-          "</a>" +
-          "<p>" + (repo.description || "No description") + "</p>" +
+      card.innerHTML =
+        "<a class='repo-link' href='" + repo.link + "' target='_blank' rel='noopener noreferrer'>" +
+          "<h3 class='repo-name'>" + repo.name + "</h3>" +
+          "<p class='repo-desc'>" + (repo.description || "No description") + "</p>" +
           "<div class='repo-languages'>" + languagesHtml + "</div>" +
-        "</div>";
+          "<span class='repo-arrow'>&rarr;</span>" +
+        "</a>";
 
-      container.appendChild(col);
+      container.appendChild(card);
     });
+
+    // "Show More" button
+    if (repositories.length > INITIAL_COUNT) {
+      var remaining = repositories.length - INITIAL_COUNT;
+      var btnWrap = document.createElement("div");
+      btnWrap.className = "repos-show-more fade-up";
+
+      var btn = document.createElement("button");
+      btn.className = "btn-primary-arrow";
+      btn.innerHTML =
+        "<span class='btn-text'>Show " + remaining + " More</span>" +
+        "<span class='btn-arrow'>&rarr;</span>";
+
+      btn.addEventListener("click", function () {
+        container.querySelectorAll(".repo-hidden").forEach(function (el, j) {
+          el.style.transitionDelay = (j * 0.06) + "s";
+          el.classList.remove("repo-hidden");
+          observer.observe(el);
+        });
+        btnWrap.remove();
+      });
+
+      btnWrap.appendChild(btn);
+      container.parentNode.appendChild(btnWrap);
+    }
+
+    // Observe dynamically added cards for scroll-reveal
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    container.querySelectorAll(".fade-up:not(.repo-hidden)").forEach(function (el) {
+      observer.observe(el);
+    });
+    // Also observe the button wrapper
+    var btnEl = container.parentNode.querySelector(".repos-show-more");
+    if (btnEl) observer.observe(btnEl);
   });
 });
