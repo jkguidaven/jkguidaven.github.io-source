@@ -191,6 +191,29 @@
   transform: scale(1.03);
 }
 
+// HealthOS logo visual (spotlight)
+.healthos-spotlight-visual {
+  background: #2bbf9e !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .healthos-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+  }
+
+  .healthos-logo {
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(0 8px 24px rgba(43, 191, 158, 0.25));
+  }
+}
+
 .bento-card-body {
   padding: 28px;
   display: flex;

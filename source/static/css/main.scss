@@ -1415,6 +1415,27 @@
   }
 }
 
+// HealthOS logo visual
+.carousel-slide-visual.healthos-visual {
+  background: #2bbf9e;
+}
+
+.carousel-slide-visual {
+  .healthos-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .healthos-logo {
+    width: 160px;
+    height: 160px;
+    filter: drop-shadow(0 8px 24px rgba(43, 191, 158, 0.25));
+  }
+}
+
 // Carousel controls
 .carousel-btn {
   position: absolute;
