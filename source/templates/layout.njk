@@ -86,26 +86,12 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/7.14.4/firebase-performance.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GBVEEWY94"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8GBVEEWY94');
+    </script>
   </body>
-  <script>
-    window.addEventListener('load', function() {
-      if (typeof firebase !== 'undefined') {
-        firebase.initializeApp({
-          apiKey: "{{ GOOGLE_API_KEY }}",
-          authDomain: "jkguidaven-github-io.firebaseapp.com",
-          databaseURL: "https://jkguidaven-github-io.firebaseio.com",
-          projectId: "jkguidaven-github-io",
-          storageBucket: "jkguidaven-github-io.appspot.com",
-          messagingSenderId: "853423073908",
-          appId: "1:853423073908:web:b67ff5e39039201b74ff21",
-          measurementId: "G-8GBVEEWY94"
-        });
-        firebase.analytics();
-        firebase.performance();
-      }
-    });
-  </script>
 </html>
