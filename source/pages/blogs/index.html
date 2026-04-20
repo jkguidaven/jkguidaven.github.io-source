@@ -1,6 +1,6 @@
 {% set page = 'blogs' %}
 {% set og_title = 'Blog - James Kenneth Guidaven' %}
-{% set og_description = 'Thoughts on frontend development, software engineering, and the web. Coming soon.' %}
+{% set og_description = 'Articles on frontend development, software engineering, and the web — pulled live from dev.to.' %}
 {% set og_image = 'hero-banner.jpg' %}
 {% set og_url = '/blogs/' %}
 {% extends "layout.njk" %}
@@ -8,8 +8,10 @@
 {% block head %}
 <!-- inject:css -->
 <!-- endinject -->
+<script defer src="/js/blogs.js"></script>
 {% endblock %}
 
 {% block content %}
-{% include 'partial/under-construction.njk' %}
+{% include 'partial/blogs-intro.njk' %}
+{% include 'partial/blog-articles.njk' %}
 {% endblock %}
