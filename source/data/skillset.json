@@ -16,13 +16,15 @@
     },
     {
       "name": "AI Engineering",
-      "description": "Putting LLMs to work — wiring Claude into real tools and workflows so it can actually get things done.",
+      "description": "Putting LLMs to work — wiring AI agents into real tools and workflows so it can actually get things done.",
       "languages": ["TypeScript"],
       "tools": [
         "Claude / Claude Code",
+        "OpenAI Codex",
         "MCP Servers",
         "Claude Skills",
-        "Agentic Workflows"
+        "Agentic Patterns & Workflows",
+        "Obsidian"
       ]
     },
     {
