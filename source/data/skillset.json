@@ -3,7 +3,7 @@
     {
       "name": "Frontend",
       "icon": "frontend.svg",
-      "description": "Where I spend most of my time — turning designs into fast, accessible interfaces that work everywhere.",
+      "description": "Turning designs into fast, accessible interfaces that work everywhere.",
       "languages": ["JavaScript/TypeScript", "HTML5/CSS3"],
       "tools": [
         "Angular / Vue / React",
