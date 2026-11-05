@@ -6,8 +6,9 @@
       "title": "Automattic Inc.",
       "subtitle": "Software Engineer",
       "items": [
-        "Building and maintaining WordPress-powered products using React and PHP",
-        "Contributing to the WordPress ecosystem at scale"
+        "Building the Jetpack Cloud dashboard, where site owners manage backups, security scans, and other Jetpack features across their WordPress sites",
+        "Building Automattic for Agencies, the platform agencies use to manage client sites, billing, and referrals",
+        "Building MCP servers and Claude skills that bring AI into everyday engineering and product workflows"
       ]
     },
     {

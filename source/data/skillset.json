@@ -15,6 +15,17 @@
       ]
     },
     {
+      "name": "AI Engineering",
+      "description": "Putting LLMs to work — wiring Claude into real tools and workflows so it can actually get things done.",
+      "languages": ["TypeScript"],
+      "tools": [
+        "Claude / Claude Code",
+        "MCP Servers",
+        "Claude Skills",
+        "Agentic Workflows"
+      ]
+    },
+    {
       "name": "Backend",
       "icon": "backend.svg",
       "description": "APIs, databases, and the infrastructure that keeps frontends fed with data.",
